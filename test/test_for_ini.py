@@ -9,4 +9,4 @@ def writeinivalue(configfile, section, key, value):
 	config.write(open(configfile, "r+"))
 
 
-writeinivalue("mailconfig.ini", "searchmail", "start","112233")
+writeinivalue("mailconfig.ini", "searchmail", "start","66")
