@@ -1,11 +1,16 @@
 import json
 from datetime import date,datetime
+import logging
+
+logger = logging.getLogger('mobiledata_cm')
 
 def __default(obj):
 	if isinstance(object, datetime):
-		return obj.strftime('%Y-%m-%dT%H:%M:%S')
+		return obj.strftime('%Y-%m-%d %H:%M:%S')
 	elif isinstance(obj, date): 
-		return obj.strftime('%Y-%m-%d') 
+		return obj.strftime('%Y-%m-%d %H:%M:%S')
+	elif isinstance(obj, datetime.datetime):
+		return obj.strftime('%Y-%m-%d %H:%M:%S')
 	else: 
 		raise TypeError('%r is not JSON serializable' % obj) 
 
