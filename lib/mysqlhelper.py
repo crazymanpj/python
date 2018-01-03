@@ -1,68 +1,57 @@
-#coding=utf-8
+#encoding=utf-8
 import MySQLdb
+import config
 import sys
-class MysqlHelper(object):
-	#用户名
-	username = ""
-	password = ""
-	ip=""
-	dbname=""
-	port=3306
 
+#查询目标数据
+def query_data(sql):
+    data = None
+    try:
+        conn = MySQLdb.connect(host=config.MYSQL_DB_HOST,user=config.MYSQL_DB_USER,passwd=config.MYSQL_DB_PASSWORD,db=config.MYSQL_DB_NAME,port=config.MYSQL_DB_PORT,charset='utf8')
+        cur = conn.cursor();
+        cur.execute(sql)
+        rows = cur.fetchall()
+        data = rows
+    except MySQLdb.Error, e:
+        IS_Connect = False
+        #若出现异常，打印信息
+        print "Error %d: %s" % (e.args[0],e.args[1])
+        sys.exit(1)
+    return data
 
-	"""docstring for MysqlHelper"""
-	def __init__(self):
-		super(MysqlHelper, self).__init__()
-		#self.arg = arg
-		self.username = "remoteedit"
-		self.password = "259gHS7y"
-		self.ip="10.20.220.57"
-		self.dbname="dubavermgr"
-		self.port=3306
+def execute_sql(sql):
+    try:
+        conn = MySQLdb.connect(host=MYSQL_DB_HOST,user=config.MYSQL_DB_USER,passwd=config.MYSQL_DB_PASSWORD,db=config.MYSQL_DB_NAMEE,port=config.MYSQL_DB_PORT,charset='utf8')
+        cur = conn.cursor();
+        cur.execute(sql)
+        conn.commit()
+        conn.close()
+        cur.close()
+        print 'db commit'
+    except MySQLdb.Error, e:
+        print "Error %d: %s" % (e.args[0],e.args[1])
+        conn.rollback()
+        conn.close()
+        cur.close()
+        return False
+    return True
 
-	def query_data(self, sql):
-		data = ""
-		try:
-			conn = MySQLdb.connect(host=self.ip, user=self.username, passwd=self.password, db=self.dbname, port=self.port)
-			cur = conn.cursor()
-			print "sql: " + sql
-			#sql = MySQLdb.escape_string(sql)
-			print "querydata: " + sql
-			cur.execute(sql)
-			rows = cur.fetchall()
-			data = rows
-		except MySQLdb.Error, e:
-			print str(e)
-			print "Connet mysql db error..."
-			sys.exit()
+def query_data_retsingledata(sql):
+    return query_data(sql)[0][0]
 
-		return data
+def query_data_original(sql):
+    data = {}
+    try:
+        conn = MySQLdb.connect(host=config.MYSQL_DB_HOST, user = config.MYSQL_DB_USER, passwd = config.MYSQL_DB_PASSWORD, db=config.MYSQL_DB_NAME, port=config.MYSQL_DB_PORT, charset='utf8')
+        cur = conn.cursor()
+        cur.execute(sql)
+        rows = cur.fetchall()
+        descriptionlist =  cur.description
+        for (i,j) in zip(rows[0], descriptionlist):
+            data[j[0]] = i
+        return data
+    except MySQLdb.Error, e:
+        print "Error %d: %s" % (e.args[0],e.args[1])
+        sys.exit(1)
 
-	#by pj 8.3
-	def execute_sql_mailinfo(self, sql, mailinfo):
-		print sql
-		try:
-			conn = MySQLdb.connect(host=self.ip, user=self.username, passwd=self.password, db=self.dbname, port=self.port)
-			cur = conn.cursor()
-			conn.set_character_set('utf8')
-			cur.execute('SET NAMES utf8;')
-			cur.execute('SET CHARACTER SET utf8;')
-			cur.execute('SET character_set_connection=utf8;')
-
-			print mailinfo.publishtime
-			print type(mailinfo.publishtime)
-			cur.execute(sql, (mailinfo.data_id, mailinfo.mailtitle, mailinfo.tester, mailinfo.publishtime, mailinfo.mailid, mailinfo.pd, mailinfo.isqualified, mailinfo.fileinfo, mailinfo.changelist, mailinfo.checklist, mailinfo.notpassreason, mailinfo.datapath, mailinfo.channel, mailinfo.subchannel))
-			conn.commit()
-			conn.close()
-			cur.close()
-		except MySQLdb.Error, e:
-			print str(e)
-			print "Execute mysql db error..."
-			sys.exit()
-
-
-#sql = "select mailtitle from dubadata_mailinfo"
-#sqlmanager = MysqlHelper()
-#ret = sqlmanager.query_data(sql)
-#for i in ret:
-#	print str(i) 
+    return rows
