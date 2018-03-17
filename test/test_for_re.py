@@ -1,5 +1,6 @@
 # encoding: UTF-8 
 import re,os
+import urllib
 
 str = r"d.d.cxv.ewwe/vjisjvij"
 
@@ -79,3 +80,22 @@ import re
 channel = "2010003660(qq浏览器)"
 m = re.match('(\d+)(.)', channel)
 print m.group(1,2)
+
+
+print "-" * 50
+
+u = r'http://www.gaojiqing.com'
+print 'tt'
+proto, rest = urllib.splittype(u)
+host, rest = urllib.splithost(rest)
+print host
+# u = r'http://www.gaojiqing.com/'
+pattern = '(http|https)://([\S]+/)'
+m = re.match(pattern, u)
+# print m.group(0,1,2)
+
+
+u = r'lb2345.com/dfe'
+pattern = '([\S]+.[\S]+/)'
+m = re.match(pattern, u)
+print m.group(1)

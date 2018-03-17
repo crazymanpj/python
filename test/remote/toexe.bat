@@ -1,0 +1,1 @@
+d:\kuaipan\python\pyinstaller-develop\pyinstaller.py -F d:\kuaipan\python\test\remote\testserver.py
