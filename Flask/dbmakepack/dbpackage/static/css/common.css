@@ -1,0 +1,41 @@
+#js-theme-choose span {
+    display: none;
+}
+
+.glyphicon-ok {
+    color: #1f8c22
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+}
+
+.footer p {
+    text-align: center
+}
+
+.err-background{
+    background-color: #FFD9D9;
+}
+
+.modal p a{outline: none}
+
+#js-sidebar-list a{display: block;float: left;width: 100%;text-align: left;filter:alpha(opacity=50);-moz-opacity:0.8;-khtml-opacity:0.8;opacity: 0.8;}
+
+[v-cloak] {
+    display: none;
+}
+
+.btn-self{
+    width: 50px;
+}
+
+.pack-select{
+    height: 28px;
+}
+
+.pack-td{
+    text-align: center
+}
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打包平台</title>
+    <link id="js-theme-css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="/fe/static/favicon.ico">
+    <script src="/fe/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/fe/static/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="/fe/static/css/common.css">-->
+
+
+    <script src="/fe/static/js/angular.min.js"></script>
+    <script src="/fe/static/js/angular-sanitize.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css">
+    <!--<script src="/fe/static/js/select2.full.min.js"></script>-->
+    <!--<link rel="stylesheet" href="/fe/static/css/select2.css">-->
+
+
+    <script src="/fe/static/js/cookie.min.js"></script>
+    <script src="/fe/static/js/common.js"></script>
+    <script src="/fe/static/js/config.js"></script>
+    <script src="/fe/static/js/packageFunction.js"></script>
+    <script src="/fe/static/js/package1.js"></script>
+</head>
+<body ng-app="wsAPP">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-grain"></span> 打包平台</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--登录后个人信息-->
+            <ul class="nav navbar-nav navbar-right" id="js-is-login" hidden>
+                <li class="dropdown">
+                    <a href="#" id="js-nickname" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/web/changePassword.html?type=change" target="_blank"><span
+                                class="glyphicon glyphicon-fire"></span> 修改密码</a></li>
+                        <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--未登录-->
+            <div class="navbar-form navbar-right" id="js-not-login">
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-login"><span
+                        class="glyphicon glyphicon-user"></span> 登录</a>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-reg"><span
+                        class="glyphicon glyphicon-plus-sign"></span> 注册</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--登录框-->
+<div class="modal fade" id="js-login">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form id="js-login-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input id="username" type="text" name="email" class="form-control" placeholder="请输入邮箱"
+                                   datatype="*1-16" required="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input id="password" type="password" name="password" class="form-control"
+                                   placeholder="请输入密码" required="">
+                        </div>
+                    </div>
+                    <p class="pull-left" style="color:red" hidden id="passwd-err-tip"><b>用户名或密码错误</b></p>
+                    <p class="pull-right"><a href="/web/changePassword.html?type=reset">忘了密码</a></p>
+                    <p class="small pull-right">&nbsp;&nbsp;&nbsp;</p>
+                    <p class="pull-right"><a href="" data-dismiss="modal" data-toggle="modal"
+                                             data-target="#js-reg">注册</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-block" id="js-login-submit">登录</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--注册框-->
+<div class="modal fade" id="js-reg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form id="js-reg-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="下次用邮箱登录" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="密码，六位以上" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" name="re_password" class="form-control" placeholder="请再输入一次密码"
+                                   required>
+                        </div>
+                    </div>
+                    <p class="small pull-left" id="reg-err" hidden style="color: red"></p>
+                    <p class="small pull-right">已有账号？<a href="" data-dismiss="modal" data-toggle="modal"
+                                                        data-target="#js-login">登录</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-reg-submit">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" ng-controller="conditionController">
+    <div id="data-div">
+        <!--限制条件start-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-check">&nbsp;<strong>一、打包产品(product)</strong></span>&nbsp;&nbsp;
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-2">
+                    <!--<select id="js-product-select" class="form-control pack-select" ng-change="product_change(product)" ng-model="product">-->
+                        <!--<option ng-repeat="x in products">{{x}}</option>-->
+                    <!--</select>-->
+                    <ui-select ng-model="itemname.value">
+                        <ui-select-match placeholder="占个位置">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="item in (itemnames | filter: $select.search) track by item.id">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-sunglasses">&nbsp;<strong>二、打包条件(conditions)</strong></span>&nbsp;&nbsp;
+                </h4>
+            </div>
+            <div class="panel-body">
+                <!--毒霸打包条件-->
+                <form class="form" id="duba"  ng-if="panelType == '1'">
+                    <div class="form-group col-md-2">
+                        <label for="js-itemname-select">合作商名字(itemname)：</label>
+                        <select id="js-itemname-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="item_change(itemname)" ng-model="itemname">
+                            <option ng-repeat="x in itemnames">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>渠道(tryno)：</label>
+                        <select id="js-tryno-select" class="form-control pack-select" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装包类型(packettype)：</label>
+                        <select id="js-packettype-select" class="form-control pack-select" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装方式(packetmodel)：</label>
+                        <select id="js-packetmodel-select" class="form-control pack-select" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tid1：</label>
+                        <select id="js-tid1-select" class="form-control pack-select" data-placement="bottom" title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tid2：</label>
+                        <select id="js-tid2-select" class="form-control pack-select" data-placement="bottom" title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tod1：</label>
+                        <select id="js-tod1-select" class="form-control pack-select" data-placement="bottom" title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tod2：</label>
+                        <select id="js-tod2-select" class="form-control pack-select" data-placement="bottom" title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>是否修改uplive.svr(fixuplive)：</label>
+                        <select id="js-fixuplive-select" class="form-control pack-select" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>是否锁主页(islokmp)：</label>
+                        <select id="js-islokmp-select" class="form-control pack-select" data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-change="channel_change(channel)" ng-model="channel">
+                            <option ng-repeat="x in data.channel">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>特殊文件(specialfile)：</label>
+                        <input class="form-control" id="specialfile" type="text" style="height: 28px" placeholder="特殊文件">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装包落地名(localname)：</label>
+                        <input class="form-control" id="localname" type="text" style="height: 28px" placeholder="安装包落地名">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="submit" class="btn btn-success"
+                                ng-click="create_data_submit()">打包
+                        </button>
+                        <button type="submit"
+                                class="btn btn-primary" ng-click="clear_data()">重置
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-th-list">&nbsp;<strong>打包历史记录</strong></span>&nbsp;&nbsp;
+            </h4>
+            <!--<span id="copy-success" class="glyphicon glyphicon-pencil" style="color: green" hidden>&nbsp;<b>复制成功了，请使用吧!</b></span>-->
+            <!--<span id="refresh-success" class="glyphicon glyphicon-ok">&nbsp;<b>数据刷新成功</b></span>-->
+        </div>
+        <div class="panel-body"  id="data-list">
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

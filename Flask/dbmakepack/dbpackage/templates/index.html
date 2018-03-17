@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打包平台</title>
+    <link id="js-theme-css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <!--<link rel="stylesheet" href="、static/css/select2.css">-->
+
+    <script src="/static/js/angular.min.js"></script>
+    <!--<script src="、static/js/select2.full.min.js"></script>-->
+    <script src="/static/js/cookie.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/package.js"></script>
+</head>
+<body ng-app="package">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-grain"></span> 打包平台</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"> <span
+                            class="glyphicon glyphicon-tint"></span> 换肤 <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" id="js-theme-choose">
+                        <li><a href="javascript:void(0);" data-theme="slate">slate 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cerulean">Cerulean 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cyborg">Cyborg 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cosmo">Cosmo 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Sandstone">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Superhero">Superhero 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="United">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Lumen">Lumen 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Journal">Journal 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Paper">Paper 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Metro">Metro 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Flatly">Flatly 风格<span>（正在用）</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--&lt;!&ndash;登录后个人信息&ndash;&gt;-->
+            <!--<ul class="nav navbar-nav navbar-right" id="js-is-login" hidden>-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="#" id="js-nickname" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                       <!--aria-haspopup="true"-->
+                       <!--aria-expanded="false"></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="/web/changePassword.html?type=change" target="_blank"><span-->
+                                <!--class="glyphicon glyphicon-fire"></span> 修改密码</a></li>-->
+                        <!--<li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--&lt;!&ndash;未登录&ndash;&gt;-->
+            <!--<div class="navbar-form navbar-right" id="js-not-login">-->
+                <!--<a class="btn btn-primary" data-toggle="modal" data-target="#js-login"><span-->
+                        <!--class="glyphicon glyphicon-user"></span> 登录</a>-->
+                <!--<a class="btn btn-primary" data-toggle="modal" data-target="#js-reg"><span-->
+                        <!--class="glyphicon glyphicon-plus-sign"></span> 注册</a>-->
+            <!--</div>-->
+        </div>
+    </div>
+</nav>
+<!--登录框-->
+<div class="modal fade" id="js-login">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form id="js-login-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input id="username" type="text" name="email" class="form-control" placeholder="请输入邮箱"
+                                   datatype="*1-16" required="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input id="password" type="password" name="password" class="form-control"
+                                   placeholder="请输入密码" required="">
+                        </div>
+                    </div>
+                    <p class="pull-left" style="color:red" hidden id="passwd-err-tip"><b>用户名或密码错误</b></p>
+                    <p class="pull-right"><a href="/web/changePassword.html?type=reset">忘了密码</a></p>
+                    <p class="small pull-right">&nbsp;&nbsp;&nbsp;</p>
+                    <p class="pull-right"><a href="" data-dismiss="modal" data-toggle="modal"
+                                             data-target="#js-reg">注册</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-block" id="js-login-submit">登录</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--注册框-->
+<div class="modal fade" id="js-reg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form id="js-reg-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="下次用邮箱登录" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="密码，六位以上" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" name="re_password" class="form-control" placeholder="请再输入一次密码"
+                                   required>
+                        </div>
+                    </div>
+                    <p class="small pull-left" id="reg-err" hidden style="color: red"></p>
+                    <p class="small pull-right">已有账号？<a href="" data-dismiss="modal" data-toggle="modal"
+                                                        data-target="#js-login">登录</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-reg-submit">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" ng-controller="conditionController">
+    <div id="data-div">
+        <!--限制条件start-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-check">&nbsp;<strong>一、打包产品(product)</strong></span>&nbsp;&nbsp;
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-2">
+                    <select id="js-product-select" class="form-control" ng-change="product_change(product)" ng-model="product">
+                        <option ng-repeat="x in products">{{x}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-sunglasses">&nbsp;<strong>二、打包条件(conditions)</strong></span>&nbsp;&nbsp;
+                </h4>
+            </div>
+            <div class="panel-body">
+                <!--毒霸打包条件-->
+                <form class="form" id="duba"  ng-if="panelType == '1'">
+                    <div class="form-group col-md-2">
+                        <label for="js-itemname-select">合作商名字(itemname)：</label>
+                        <select id="js-itemname-select" class="form-control"  data-placement="bottom"
+                                title="Tooltip on left"
+                                ng-model="itemname" onchange="showNewItemName()">
+                            <option id="item-{{x}}" ng-repeat="x in itemnames">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>渠道(tryno)：</label>
+                        <select id="js-tryno-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left" ng-model="tryno">
+                            <option ng-repeat="x in trynos">{{x}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装包类型(packettype)：</label>
+                        <select id="js-packettype-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left" ng-model="packettype">
+                            <option>exe</option>
+                            <option>dll</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装方式(packetmodel)：</label>
+                        <select id="js-packetmodel-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left" ng-model="packetmodel">
+                            <option>非静默</option>
+                            <option>静默</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tid1：</label>
+                        <input class="form-control" type="text" placeholder="tid1" id="js-tid1">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tid2：</label>
+                        <input class="form-control" type="text" placeholder="tid2" id="js-tid2">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tod1：</label>
+                        <input class="form-control" type="text" placeholder="tod1" id="js-tod1">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>tod2：</label>
+                        <input class="form-control" type="text" placeholder="tod2" id="js-tod2">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>是否修改uplive.svr(fixuplive)：</label>
+                        <select id="js-fixuplive-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left" ng-model="fixuplive">
+                            <option>是</option>
+                            <option>否</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>是否锁主页(islokmp)：</label>
+                        <select id="js-islokmp-select" class="form-control" data-placement="bottom"
+                                title="Tooltip on left" ng-model="islokmp">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>安装包落地名(localname)：</label>
+                        <input class="form-control" id="localname" type="text" placeholder="安装包落地名">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>特殊文件(specialfile)：</label>
+                        <input class="form-control" id="specialfile" type="text" placeholder="特殊文件">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="submit" class="btn btn-success btn-block" style="margin-top: 22px"
+                                ng-click="dopack()">打包
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <span class="glyphicon glyphicon-th-list">&nbsp;<strong>打包历史记录</strong></span>&nbsp;&nbsp;
+                <span id="copy-success" class="glyphicon glyphicon-pencil" style="color: green" hidden>&nbsp;<b>复制成功了，请使用吧!</b></span>
+            </h4>
+        </div>
+        <div class="panel-body" id="data-list">
+            <table class="table table-striped">
+                <tr>
+                    <th>打包时间</th>
+                    <th>产品</th>
+                    <th>合作商</th>
+                    <th>渠道</th>
+                    <th>是否锁主页</th>
+                    <th>安装包类型</th>
+                    <th>安装方式</th>
+                    <th>tid1-tid2-tod1-tod2</th>
+                    <th>共享路径</th>
+                    <!--<th>操作用户</th>-->
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="x in historypackages">
+                    <td>{{x.datetime}}</td>
+                    <td>{{x.product}}</td>
+                    <td>{{x.itemname}}</td>
+                    <td>{{x.tryno}}</td>
+                    <td ng-if="x.islokmp == 1">是</td>
+                    <td ng-if="x.islokmp == 0">否</td>
+                    <td>{{x.packagetype}}</td>
+                    <td ng-if="x.packagemodel == 1">静默</td>
+                    <td ng-if="x.packagemodel == 0">非静默</td>
+                    <td ng-if="x.packagemodel != 0 && x.packagemodel != 1">{{x.packagemodel}}</td>
+                    <td>{{x.tid1}}-{{x.tid2}}-{{x.tod1}}-{{x.tod2}}</td>
+                    <td ng-if="x.sharepath != ''">
+                        <a href='javascript:void(0)'><input style='border-style:none; text-decoration:underline; background-color:transparent;
+                            color: #00bc8c' value='点击复制' data='{{x.sharepath}}' onclick='copyDataPath(this)' readonly></a>
+                    </td>
+                    <td ng-if="x.sharepath == ''">
+                        打包中...
+                    </td>
+                    <!--<td>{{x.user}}</td>-->
+                    <td ng-if="x.result == 0">
+                        <button type="button" ng-click="query(x.taskid)" ><span class="glyphicon glyphicon-refresh"></span></button>
+                        <button type="button" ng-click="stoppack(x.taskid)"><span class="glyphicon glyphicon-stop"></span></button>
+                    </td>
+                    <td ng-if="x.result == 1">
+                        <span class="glyphicon glyphicon-ok" style="color: green" aria-hidden="true"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="newItemnameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">输入新的合作商名字</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="newItemName" placeholder="新合作商名字">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="dismissNewItem()">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="saveNewItem()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="showMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Message</h4>
+                </div>
+                <div class="modal-body">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#copy-success").hide();
+</script>
+</body>
+</html>
