@@ -114,8 +114,8 @@ def getpartnerlist(request):
 def test_updatesvn(request):
     if request.method == 'GET':
         try:
-            # ret_json = apifuncs.API_UpdateSvn()
-            ret_json = {}
+            ret_json = apifuncs.API_UpdateSvn()
+            #ret_json = {}
             return myhttpresponse.json_response(ret_json, True)
         except Exception as e:
             return myhttpresponse.mycommonerror_response(str(e))
