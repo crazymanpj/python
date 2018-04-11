@@ -34,6 +34,21 @@ def isnewitem(itemname, packagetype):
     else:
         logger.debug('newitem...')
         return 1
-        
+
+def getargv_by_description(item, description):
+    q = item.objects.filter(description=description)
+    if len(q) >0:
+        return q[0].argv
+    else:
+        return ''
+
+def getdescription_by_argv(item, argv):
+    q = item.objects.filter(argv=argv)
+    if len(q) > 0:
+        return q[0].description
+    else:
+        return ''
+
+
 if __name__=='__main__':
     pass

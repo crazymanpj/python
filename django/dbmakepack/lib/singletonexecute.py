@@ -10,6 +10,10 @@ from lib import myconfig
 import os
 import time
 import subprocess
+import traceback
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 import logging
 logger = logging.getLogger('dbpackage')
@@ -53,15 +57,17 @@ class Singleton(object):
         if self.getisworking() is True:
             # os.system(self.getfilepath())
             try:
-                print('-' *50)
-                print('makepackage_thread')
-                print(self.getfilepath())
+                self.setCurrentProduct()
                 args = self.getfilepath() + ' ' + self.argvs
-                print('*' *50)
-                print(args)
+                logger.debug('start call script..')
+                logger.debug(args)
                 self.handle = subprocess.Popen(args)
+                logger.debug('call script end...')
                 time.sleep(0.1)
             except Exception as e:
+                logger.debug('call script error...')
+                logger.debug(str(e))
+                traceback.print_exc()
                 self.resetworking()
 
             return True
@@ -99,12 +105,37 @@ class Singleton(object):
         # print(filepath)
         return os.path.join(filepath, filename)
 
+    def winwaitcallexe(self, waitingsecond, breaksecond):
+        popen = subprocess.Popen(self.argvs)
+        waitcount = 0
+        while(popen.poll() == None):
+            logger.debug('not finished')
+            time.sleep(breaksecond)
+            waitcount = waitcount + breaksecond
+            if(waitcount >= waitingsecond):
+                popen.kill()
+        logger.debug('winwaitcallexe end...')
+        return True
 
+    def getArgvByName(self, argv):
+        for i in self.argvs.split(' '):
+            temp = '-' + argv + '='
+            logger.debug(temp)
+            if i.find(temp) == 0:
+                return i.replace(temp, '')
 
+    def setCurrentProduct(self):
+        product = self.getArgvByName('product')
+        myconfig.writeinivalue(self.configfile, 'share', 'product', product)
 
 if __name__ == '__main__':
+    print(os.getcwd())
+    # print a.makepackage_thread()
+    # a.stop_makepackage()
     a.makepackage_thread()
     a.stop_makepackage()
+    print 'product:'
+    print a.getArgvByName('product')
     time.sleep(5)
     print('end')
     b.makepackage_thread()

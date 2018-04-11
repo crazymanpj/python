@@ -15,4 +15,8 @@ urlpatterns = [
     url('^testupdatesvn', views.test_updatesvn),
     url('^test_method', views.test_method),
     url('^addparner', views.addpartner),
+    url('^getinstallxml', views.getinstallxml),
+    url('^getpacketxml', views.getpacketxml),
+    url('^getlastpackageinfobyitemname', views.getlastpackageinfobyitemname),
+    url('^getautotidtod', views.getautotidtod),
 ]

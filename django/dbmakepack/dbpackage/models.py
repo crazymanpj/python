@@ -22,6 +22,8 @@ class DBpackageinfo(models.Model):
     localname = models.CharField(max_length=256)
     user = models.CharField(max_length=50)
     result = models.IntegerField()
+    installxml = models.CharField(max_length=20)
+    packetxml = models.CharField(max_length=20)
 
     class Meta:
         db_table = 'db_packageinfo'
@@ -63,6 +65,29 @@ class DBPartnerlist(models.Model):
     description = models.CharField(max_length=50)
     addtime = models.DateTimeField()
     status = models.IntegerField()
+    product = models.CharField(max_length=20)
 
     class Meta:
         db_table = 'db_partnerlist'
+
+class DBInstallXml(models.Model):
+    id = models.IntegerField(primary_key=True)
+    argv = models.CharField(max_length=20, unique=True)
+    description = models.CharField(max_length=50, unique=True)
+    addtime = models.DateTimeField()
+    status = models.IntegerField()
+    product = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'db_installxml'
+
+class DBPacketXml(models.Model):
+    id = models.IntegerField(primary_key=True)
+    argv = models.CharField(max_length=20, unique=True)
+    description = models.CharField(max_length=50, unique=True)
+    addtime = models.DateTimeField()
+    status = models.IntegerField()
+    product = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'db_packetxml'
