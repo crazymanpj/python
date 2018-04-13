@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端数据平台</title>
+    <link id="js-theme-css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="anchor" content="wu song">
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/nya-bs-select.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-datetimepicker.min.css">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="/static/js/cookie.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/data.js"></script>
+    <script src="/static/js/nya-bs-select.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
+</head>
+<body ng-app="wsAPP" ng-controller="bodyController" ng-keydown="mo($event)">
+<!--头部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-grain"></span> 数据平台</a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span
+                            class="glyphicon glyphicon-tint"></span> 换肤 <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" id="js-theme-choose">
+                        <li><a href="javascript:void(0);" data-theme="slate">slate 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cerulean">Cerulean 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cyborg">Cyborg 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cosmo">Cosmo 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Sandstone">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Superhero">Superhero 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="United">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Lumen">Lumen 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Journal">Journal 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Paper">Paper 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Metro">Metro 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Flatly">Flatly 风格<span>（正在用）</span></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav" id="js-manager-iscanshow" hidden>
+                  <!-- 内容管理 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">内容管理 <span
+                            class="caret"></span></a>                    
+                    <ul class="dropdown-menu" role="menu" id="js-data-manager">
+                        <li><a href="#" button-action="addchannel">添加新渠道</a></li>
+                        <li><a href="#" button-action="addhostver">添加宿主版本号</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--增加渠道框-->
+            <div class="form-group modal fade" id="js-addchannel" ng-controller="addChannel">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">新添加渠道，请填写相应信息</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="channel-description" class="control-label">渠道描述：</label>
+                    <div>
+                        <input class="form-control" id="channel-description" placeholder="渠道描述：如手助全渠道" type="text" ng-model="channelDescription">
+                    </div>
+                    <label for="channel-id" class="control-label">渠道号：</label>
+                    <div>
+                        <input class="form-control" id="channel-id" type="text" placeholder="渠道号：如100003" ng-model="channelId">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="addchannel()" data-dismiss="modal">确定</button>
+                </div>
+                </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!--增加宿主版本框-->
+            <div class="form-group modal fade" id="js-addhostver" ng-controller="addHostver">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">请填写宿主版本号</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="channel-description" class="control-label">宿主版本号</label>
+                    <div>
+                        <input class="form-control" id="hostver" type="text"  placeholder="渠道号：如10100036" ng-model="hostver">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="addhostver()" data-dismiss="modal">确定</button>
+                </div>
+                </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <!--登录后个人信息-->
+            <ul class="nav navbar-nav navbar-right" id="js-is-login" hidden>
+                <li class="dropdown">
+                    <a href="#" id="js-nickname" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/cm/userlogout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--未登录-->
+            <div class="navbar-form navbar-right" id="js-not-login">
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-login"><span class="glyphicon glyphicon-user"></span> 登录</a>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-reg"><span class="glyphicon glyphicon-plus-sign"></span> 注册</a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+
+<!--登录框-->
+<div class="modal fade" id="js-login">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form id="js-login-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input id="username" type="text" name="email" class="form-control" placeholder="请输入邮箱" datatype="*1-16" required="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="请输入密码" required="">
+                        </div>
+                    </div>
+                    <p class="pull-left" style="color:red" hidden id="passwd-err-tip"><b>输入的用户名或密码错误</b></p>
+                    <p class="small pull-right">没有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-reg">注册</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="js-login-submit">确认</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--注册框-->
+<div class="modal fade" id="js-reg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form id="js-reg-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="下次用邮箱登录" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="密码，六位以上" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" name="re_password" class="form-control" placeholder="请再输入一次密码" required>
+                        </div>
+                    </div>
+                    <p class="small pull-left" id="reg-err" hidden style="color: red"></p>
+                    <p class="small pull-right">已有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-login">登录</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-reg-submit">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!--侧边栏-->
+        <div class="col-xs-12 col-sm-3 col-md-2" id="js-sidebar-list" ng-controller="sideBar">
+            <div class="panel panel-default" ng-repeat="x in data">
+
+                <div class="panel-heading"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;{{x.groupname}}</div>
+                <div class="panel-body">
+                    <a type="button" ng-repeat="y in x.sidebars" class="btn btn-link" href="{{ y.url }}" target="_blank">
+                    <span class="glyphicon glyphicon-paperclip"></span>&nbsp;&nbsp;{{ y.name }}
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!--侧边栏end-->
+
+        <div class="col-xs-12 col-sm-9 col-md-10" id="data-div">
+            <!--限制条件start-->
+            <div class="panel panel-default">
+<!--                 <div class="panel-heading">
+                    <span class="glyphicon glyphicon-sunglasses">&nbsp;添加发布记录</span>&nbsp;&nbsp;
+                    <span id="make-error" style="color: green">&nbsp;<b>哈哈哈</b>&nbsp;<span class="glyphicon glyphicon-hand-down"></span>
+                    <span class="glyphicon glyphicon-hand-down"></span>
+                    <span class="glyphicon glyphicon-hand-down"></span>
+                    <span class="glyphicon glyphicon-hand-down"></span>
+                    <span class="glyphicon glyphicon-hand-down"></span></span>
+                </div> -->
+                <div class="panel-body">
+                    <form class="form" id="js-select" ng-controller="selectList">
+
+                    <!-- 同步渠道框-->
+                    <div class="form-group modal fade" id="js-selectsynchannel">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">请选择要同步的渠道：</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="checkbox" ng-repeat="x in data.channel">
+                                 <label><input type="checkbox" id="selectchannel" ng-checked="isChecked(x)" ng-click="updateSelection($event, x)">{{x}}</input></label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-click="synChannel()" data-dismiss="modal">确定</button>
+                        </div>
+                        </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+                        <div class="form-group col-md-2">
+                            <label>产品(product)：</label>
+                            <select id="js-product-select" class="form-control" ng-change="product_change(product)" ng-model="product">
+                                <option ng-repeat="x in data.product">{{x}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>宿主版本号：</label>
+                            <select id="js-hostver-select" class="form-control" ng-change="hostver_change(hostver)" ng-model="hostver">
+                                <option ng-repeat="x in data.hostver">{{x}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>渠道(channel)：</label>
+                            <ol id="js-channel-select" class="nya-bs-select form-control" ng-change="channel_change(channel)" ng-model="channel" title="选择渠道" multiple>
+                                <li nya-bs-option="x in data.channel">
+                                    <a>
+                                    {{x}}
+                                    <span class="glyphicon glyphicon-ok check-mark"></span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </div> 
+                        <div class="form-group col-md-2">
+                            <div class="input-group date form_date">
+                                <label>发布时间(time)：</label>
+                                <input class="form_control" id="datetimepicker" data-date-format="yyyy-mm-dd" ng-model="publishtime" style="position: relative;height: 36px;width: 220px;">
+<!--                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calender"></span></span> -->
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label>安装包路径:(只发插件请留空)</label>
+                            <textarea type="text" class="form-control" placeholder="安装包路径地址" ng-model="apkpath" id="data-path"></textarea>
+                        </div>
+                        <div class="form-group col-md-8" id="plugintitle">
+                            <label>点击添加插件：</label>
+                            <button name="add" id="addpluginpath" class="btn btn-sm btn-info" ng-click="add_plugin_path()"><span class="glyphicon glyphicon-plus"></span></button>
+              <!--               <button name="add" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon glyphicon-minus"></span></button> -->
+                        </div>
+                        <div class="form-group" id="plugincontain">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label>备注：</label>
+                            <textarea type="text" class="form-control" placeholder="发布内容" ng-model="details" id="details"></textarea>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button type="submit" style="height:60px;margin-top:22px" class="btn btn-success" ng-click="create_data_submit()">提交数据</button>
+                            <button type="submit" style="margin-top:45px;height:30px;width: 50px" class="btn btn-sm btn-primary" ng-click="clear_data()">重置</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <!--限制条件end-->
+            <!--底部数据列表start-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;发布记录列表&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="copy-success" class="glyphicon glyphicon-pencil" style="color: green" hidden>&nbsp;<b>复制成功了，请使用吧!</b></span>
+                    <span id="refresh-success" class="glyphicon glyphicon-ok">&nbsp;<b>数据刷新成功</b></span>
+                </div>
+                <div class="panel-body" ng-controller="bottomDataList" id="data-list">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>渠道</th>
+                            <th>文件地址</th>
+                            <th>发布时间</th>
+                            <!--<th>数据版本</th>-->
+                            <th>记录人</th>
+                            <!--<th>发布人</th>-->
+                            <!--<th>状态</th>-->
+                            <th>操作</th>
+                            <th style="text-align: center">查看详情</th>
+                        </tr>
+                        </thead>
+                        <tbody id="js-data-lists">
+                        <tr ng-repeat="x in data">
+                            <th>{{x.filetype || ''}}</th>
+                            <th width="200">{{x.channel || ''}}</th>
+                            <th><a href="javascript:void(0)"><input style="border-style:none; text-decoration:underline; background-color:transparent; color: #00bc8c" value="{{ x.filepath || '' }}" size="110" readonly onclick="copy(this)"></a></th>
+                            <th>{{x.publishtime || ''}}</th>
+                            <th>{{x.user || ''}}</th>
+                            <!-- <th><button name="data-syn" class="btn btn-xs btn-primary btn-self" ng-click="datasyn(x.id)">同步</button></th> -->
+                            <th><div class="btn-group"><button class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-right" role="menu"><li><a href="#" ng-click="synOtherChannel(x.id)" name="sync_trynos">同步到多渠道</a></li></ul></div></th>
+                            <th style="text-align: center"><a href="/mobiledata/PublishDetail.html?Id={{x.id}}" target="_blank">&gt;&gt;&gt;</a></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- 过度框 -->
+                    <div class="modal fade" id="js-loading">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>正在加载</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                            <span class="sr-only">...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 发布确认框-->
+                    <div class="modal fade" id="js-pub">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">发布确认</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div ng-if="dataSizeTooBig != 1"><h4>亲，确认以后不能反悔，还要继续吗？</h4></div>
+                                    <div ng-if="dataSizeTooBig == 1">
+                                        <p><h4>即将发布的数据大小超过5M，请确认已经调整好cs3发布速度</h4></p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" id="pub-go">确认</button>
+                                    <button type="button" class="btn btn-primary" id="pub-cancel">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="js-op">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 ng-if="chicken" align="center"><b>{{chicken}}</b></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div style="text-align: center">
+                                        <img align="center" src="/static/img/makedatasucess.gif" id="makedatasuccess" hidden/>
+                                        <img align="center" src="/static/img/loading.gif" id="loading" hidden/>
+                                    </div>
+                                    <div style="text-align: center" id="js-errDetail" hidden>
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <div class="panel-title"><h3>错误信息:{{errDetail}}</h3></div>
+                                            </div>
+                                            <div class="panel-footer">
+                                                <button class="btn btn-success" ng-if="errorcode == 403" ng-click="showLogin()">点击登录</button>
+                                                <button class="btn btn-primary" ng-click="closeOp()">关闭</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--页码-->
+                    <div style="text-align: center" ng-controller="pageCtrl">
+                        <nav>
+                            <ul class="pagination pagination-sm" id="js-page">
+                                <li><a href="javascript:void(0)" ng-click="changePage(1)" ng-if="current > 1">首页</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current - 1)" ng-if="current > 1">上一页</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current - 2)" ng-if="current > 2">{{current - 2}}</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current - 1)" ng-if="current > 1">{{current - 1}}</a></li>
+                                <li class="active"><a href="javascript:void(0)" ng-click="changePage(current)">{{current}}</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current + 1)" ng-if="current + 1 <= total">{{current + 1}}</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current + 2)" ng-if="current + 2 <= total">{{current + 2}}</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(current + 1)" ng-if="current < total">下一页</a></li>
+                                <li><a href="javascript:void(0)" ng-click="changePage(total)" ng-if="current < total">末页</a></li>
+                                <li><a>共{{total}}页</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-offset-5" id="img-div">-->
+            <!---->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="footer">
+    <p><span class="glyphicon glyphicon-globe"></span> 猎豹移动 - 数据平台</p>
+</div>
+
+<script src="/static/js/sideBar.js"></script>
+<script src="/static/js/indexDataList.js"></script>
+<script src="/static/js/productList.js"></script>
+<script>
+    var explorer = window.navigator.userAgent.toLowerCase();
+    var rMsie = /(msie\s|trident\/7)([\w\.]+)/;
+    if (rMsie.exec(explorer) != null) {
+        alert('暂不支持IE浏览器');
+    }
+    $("#copy-success").hide();
+    $("#refresh-success").hide();
+    $("#make-error").hide();
+
+//    $("#tooltip").tooltip();
+</script>
+</body>
+</html>
