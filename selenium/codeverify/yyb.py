@@ -51,9 +51,6 @@ class YYB(object):
     def closeNouseWindow(self):
         pass
 
-    def commit(self):
-        pass
-
     def readtextfromfile(self):
         try:
             file = open(TEXTFIlEPATH, 'r')
