@@ -4,7 +4,7 @@
 # Author:  pangjian
 # version: 1.1
 import logging,os,shutil,sys,datetime,ConfigParser
-
+import traceback
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -26,19 +26,20 @@ class Log():
         f_logger.setFormatter(format)
         logger.addHandler(f_logger)
         logger.setLevel(logging.INFO)
-        return logger 
+        return logger
 
     def outMsg(self, text):
         if self.isdebug == False:
-            self.logger.info(text)
+            # self.logger.info(text)
             self.log(text)
         else:
             print(text)
-            
+
     def outError(self, text):
         if self.isdebug == False:
-            self.logger.error(text)
+            # self.logger.error(text)
             self.log(text)
+            self.log(traceback.format_exc())
         else:
             print(text)
 
