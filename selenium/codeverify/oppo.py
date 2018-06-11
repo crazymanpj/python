@@ -2,233 +2,245 @@
 # encoding=utf-8
 # Date:    2018-04-20
 # Author:  pangjian
-from oppo_config import URL, UPDATEURL, PACKAGEPAtH, AU3PATH, PACKAGEMD5,IS_UPDATE_TEXT, TEXTFIlEPATH, BANNEDWORD, ONEWORD
+import sys,time
+from oppo_config import URL, UPDATEURL, ONEWORD, USERNAME, PASSWORD, CHANNELNO
+from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
 from selenium import webdriver
 from PIL import Image
-import sys,time
 from lib.verifybreak import VerifyBreak
 from selenium.common.exceptions import NoSuchElementException
-import os
-from lib import commonlib
+import os,requests
+from packagePubMarket import PackagePubMarket
+from lib import log
 
+class OPPO(PackagePubMarket):
 
+    def init(self):
+        self.logger = log.Log('oppo.txt')
+        self.packagePath = self.getFilePathInDir(self.getPackageName())
+        self.logger.outMsg(self.packagePath)
 
-def isLogInSuccess(driver):
-    print 'isLogInSuccess...'
-    try:
-        cjyy = driver.find_element_by_xpath("//input[@class='form-control search']")
-        ret = True
-    except NoSuchElementException as e:
-        ret = False
+    def getPackageName(self):
+        return 'cmgamemaster_oppo_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
 
-    print ret
-    return ret
+    def isLogInSuccess(self):
+        self.logger.outMsg('isLogInSuccess...')
+        try:
+            cjyy = self.driver.find_element_by_xpath("//input[@class='form-control search']")
+            ret = True
+        except NoSuchElementException as e:
+            ret = False
 
-def resetverifycode(driver):
-    print 'resetverifycode'
-    driver.find_element_by_xpath("//a[@class='captcha-handler']").click()
-    time.sleep(2)
-    driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-    im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-    box = (390,460,490,500)
-    region = im.crop(box)
-    codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
-    region.save(codeimgpath)
-    vb = VerifyBreak(codeimgpath)
-    verifycode = vb.getverifycode()
-    print 'verifycode: ' + verifycode
-    return verifycode
+        return ret
 
-def login(driver, username, password, verifycode):
-    k_username = driver.find_element_by_name('userName')
-    k_username.send_keys(username)
-    k_password = driver.find_element_by_name('password')
-    k_password.send_keys(password)
-    time.sleep(1)
-    k_verifycode = driver.find_element_by_name('verifyCode')
-    k_verifycode.send_keys(verifycode)
+    def resetverifycode(self):
+        self.logger.outMsg('resetverifycode')
+        self.driver.find_element_by_xpath("//a[@class='captcha-handler']").click()
+        time.sleep(2)
+        self.driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
+        im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
+        # box = (390,460,490,500)
+        box = (386,466,476,496)
+        region = im.crop(box)
+        codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
+        region.save(codeimgpath)
+        # time.sleep(500)
+        vb = VerifyBreak(codeimgpath)
+        verifycode = vb.getverifycode()
+        self.logger.outMsg('verifycode: ' + verifycode)
+        return verifycode
 
-def resetdialog(driver):
-    print 'resetdialog'
-    k_username = driver.find_element_by_name('userName')
-    k_username.clear()
-    k_password = driver.find_element_by_name('password')
-    k_password.clear()
-    time.sleep(0.5)
-    k_verifycode = driver.find_element_by_name('verifyCode')
-    k_verifycode.clear()
-
-def callloginloop(driver, username, password, verifycode, looptimes):
-    for i in range(0, looptimes):
-        print 'login fail, retry...'
-        resetdialog(driver)
+    def login(self,verifycode):
+        k_username = self.driver.find_element_by_name('userName')
+        k_password = self.driver.find_element_by_name('password')
+        k_username.send_keys(USERNAME)
+        k_password.send_keys(PASSWORD)
         time.sleep(1)
-        verifycode = resetverifycode(driver)
-        print verifycode
-        time.sleep(2)
-        login(driver, username, password, verifycode)
-        time.sleep(2)
-        if isLogInSuccess(driver) == True:
-            return True,i
-        else:
-            continue
-    return False
+        k_verifycode = self.driver.find_element_by_name('verifyCode')
+        k_verifycode.send_keys(verifycode)
 
-def iscorrectupdateurl(driver):
-    print 'iscorrectupdateurl'
-    print driver.current_url
-    title_span = driver.find_element_by_xpath("//td[@class='text-top']/span[1]")
-    title = title_span.text
-    print title
-    if title == u'':
-        ret = True
-    else:
-        ret = False
+    def resetdialog(self):
+        self.logger.outMsg('resetdialog')
+        k_username = self.driver.find_element_by_name('userName')
+        k_username.clear()
+        k_password = self.driver.find_element_by_name('password')
+        k_password.clear()
+        time.sleep(0.5)
+        k_verifycode = self.driver.find_element_by_name('verifyCode')
+        k_verifycode.clear()
 
-    print ret
-    return ret
+    def callloginloop(self, verifycode, looptimes):
+        for i in range(0, looptimes):
+            self.logger.outMsg('login fail, retry...')
+            self.resetdialog()
+            time.sleep(1)
+            verifycode = self.resetverifycode()
+            self.logger.outMsg(verifycode)
+            time.sleep(2)
+            self.login(verifycode)
+            time.sleep(2)
+            if self.isLogInSuccess() == True:
+                return True,i
+            else:
+                continue
+        return False,0
 
-def isneedupdatesamever(driver):
-    print 'isneedupdatesamever...'
-    try:
-        ljsq = driver.find_element_by_xpath("//a[@class='error-tip-operation']")
-        if ljsq.text == '立即申请':
+    def iscorrectupdateurl(self):
+        title_span = self.driver.find_element_by_xpath("//td[@class='text-top']/span[1]")
+        title = title_span.text
+        self.logger.outMsg(title)
+        if title == u'':
             ret = True
         else:
             ret = False
-    except NoSuchElementException as e:
-        ret = False
 
-    print ret
-    return ret
+        self.logger.outMsg(ret)
+        return ret
 
-def readtextfromfile():
-    try:
-        file = open(TEXTFIlEPATH, 'r')
-        text = file.read()
-    except:
-        print 'read file error'
-    finally:
-        file.close()
-    print text
-    return text
+    def isneedupdatesamever(self):
+        self.logger.outMsg('isneedupdatesamever...')
+        try:
+            ljsq = self.driver.find_element_by_xpath("//a[@class='error-tip-operation']")
+            if ljsq.text == '立即申请':
+                ret = True
+            else:
+                ret = False
+        except NoSuchElementException as e:
+            ret = False
 
-def filterText(text):
-    for i in BANNEDWORD:
-        if text.find(i) != -1:
-            print '不允许更新该文案：' + i
+        self.logger.outMsg(ret)
+        return ret
+
+    def commit(self):
+        self.logger.outMsg('commit')
+        self.driver.find_element_by_id('auditbutton').click()
+        time.sleep(20)
+
+    def updatesamever(self):
+        self.logger.outMsg('updatesamever...')
+        self.driver.find_element_by_link_text('立即申请').click()
+        time.sleep(2)
+        textarea = self.driver.find_element_by_name('update_reason')
+        textarea.send_keys('修复bug')
+        time.sleep(1)
+        self.driver.find_elemnt_by_id('button').click()
+
+        time.sleep(3)
+        self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']").click()
+        time.sleep(2)
+
+        cmd = AU3PATH + ' ' + self.packagePath
+        os.system(cmd)
+        time.sleep(10)
+        uploadbutton = self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']/span[1]")
+        self.logger.outMsg(uploadbutton.text)
+        while uploadbutton.text != '上传':
+            self.logger.outMsg('上传中，等待...')
+            time.sleep(10)
+
+        self.logger.outMsg('上传完成，已成功')
+        time.sleep(5)
+        updatenormal()
+
+    def updatenormal(self):
+        self.logger.outMsg('updatenormal')
+        if IS_UPDATE_TEXT == True:
+            self.logger.outMsg('需要更新文案')
+            text = self.readtextfromfile()
+            self.filterText(text)
+            textarea = self.driver.find_element_by_name('update_desc')
+            textarea.clear()
+            textarea.send_keys(text.decode())
+            self.commit()
+        else:
+            self.commit()
+
+    def downloadImg(self):
+        f_handle = None
+        codeImg = self.driver.find_element_by_xpath("//img[@class='captcha-img']")
+        url = codeImg.get_attribute('src')
+        self.logger.outMsg(url)
+        try:
+            r = requests.get(url, verify = False)
+            f_handle = open('codeImg.png', 'wb')
+            f_handle.write(r.content)
+            self.logger.outMsg('donwload codeimg ok')
+        except Exception as e:
+            self.logger.outError('download codeimg fail' + str(e))
+        finally:
+            f_handle.close()
+
+    def publishPackage(self):
+        self.logger.outMsg('start')
+        self.driver.get(URL)
+
+        self.driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
+        im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
+        # box = (390,390,490,430)
+        box = (387,396,477,426)
+        region = im.crop(box)
+        codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
+        region.save(codeimgpath)
+        vb = VerifyBreak(codeimgpath)
+        verifycode = vb.getverifycode()
+        self.login(verifycode)
+        time.sleep(3)
+
+        if self.isLogInSuccess():
+            self.logger.outMsg('登录成功')
+        else:
+            self.logger.outMsg('登录失败')
+            ret, trynum = self.callloginloop(verifycode, 20)
+            if ret == True:
+                self.logger.outMsg('登录成功')
+                self.logger.outMsg('登录次数：' + str(trynum))
+            else:
+                self.logger.outMsg('登录失败')
+                sys.exit(0)
+
+        self.driver.get(UPDATEURL)
+        time.sleep(5)
+        ret = self.iscorrectupdateurl()
+        if ret==False:
+            self.logger.outMsg('')
             sys.exit(0)
 
-def commit(driver):
-    print 'commit'
-    # driver.find_element_by_id('auditbutton').click()
-    pass
+        self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']").click()
+        time.sleep(2)
 
-def updatesamever(driver):
-    print 'updatesamever...'
+        self.verifyVersionCode()
 
-def updatenormal(driver):
-    print 'updatenormal'
-    if IS_UPDATE_TEXT == True:
-        print '需要更新文案'
-        text = readtextfromfile()
-        filterText(text)
-        textarea = driver.find_element_by_name('update_desc')
-        textarea.clear()
-        textarea.send_keys(text.decode())
-        commit(driver)
-    else:
-        commit(driver)
+        cmd = AU3PATH + ' ' + self.packagePath
+        os.system(cmd)
+        time.sleep(10)
+        uploadbutton = self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']/span[1]")
+        self.logger.outMsg(uploadbutton.text)
+        while uploadbutton.text != '上传':
+            self.logger.outMsg('上传中，等待...')
+            time.sleep(10)
+
+        self.logger.outMsg('上传完成，已成功')
+        time.sleep(5)
+        oneword = self.driver.find_element_by_xpath("//input[@id='oneword']")
+        oneword.clear()
+        oneword.send_keys(ONEWORD)
+
+        sm = self.driver.find_element_by_xpath("//textarea[@name='test_desc']")
+        sm.clear()
+        sm.send_keys(u'无')
+
+        self.driver.find_element_by_id('radios-5').click()
+
+        if self.isneedupdatesamever() == True:
+            self.logger.outMsg('需要同版本更新...')
+            self.updatesamever()
+        else:
+            self.logger.outMsg('不需要同版本更新...')
+            self.updatenormal()
 
 
 if __name__ == '__main__':
-    # text = readtextfromfile()
-    # filterText(text)
-    # sys.exit(0)
-    driver = webdriver.Chrome()
-    try:
-        driver.get(URL)
-    except:
-        print 'selenium error'
-        sys.exit()
-
-    # k_username = driver.find_element_by_name('userName')
-    # k_username.send_keys('guominmin@conew.com')
-    # k_password = driver.find_element_by_name('password')
-    # k_password.send_keys('CMCM2016!')
-    # time.sleep(20)
-    # driver.get(UPDATEURL)
-    # time.sleep(2)
-    # print iscorrectupdateurl(driver)
-    # sys.exit(0)
-    codeImg = driver.find_element_by_xpath("//img[@class='captcha-img']")
-    print codeImg.get_attribute('src')
-    sys.exit()
-
-    driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-    im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-    box = (390,390,490,430)
-    region = im.crop(box)
-    codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
-    region.save(codeimgpath)
-    vb = VerifyBreak(codeimgpath)
-    verifycode = vb.getverifycode()
-    login(driver, '', '', verifycode)
-    time.sleep(3)
-
-    if isLogInSuccess(driver):
-        print '登录成功'
-    else:
-        print '登录失败'
-        ret, trynum = callloginloop(driver, '', '', verifycode, 20)
-        if ret == True:
-            print '登录成功'
-            print '登录次数：' + str(trynum)
-        else:
-            print '登录失败'
-            sys.exit(0)
-
-    driver.get(UPDATEURL)
-    time.sleep(5)
-    ret = iscorrectupdateurl(driver)
-    if ret==False:
-        print '不是，退出'
-        sys.exit(0)
-
-    driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']").click()
-    time.sleep(2)
-
-    try:
-        if commonlib.md5_file(PACKAGEPAtH) != PACKAGEMD5:
-            print 'md5不一致，发布退出'
-    except Exception as e:
-        print '文件路径不在，退出'
-        driver.quit()
-        sys.exit()
-
-    cmd = AU3PATH + ' ' + PACKAGEPAtH
-    os.system(cmd)
-    time.sleep(10)
-    uploadbutton = driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']/span[1]")
-    print uploadbutton.text
-    while uploadbutton.text != '上传':
-        print '上传中，等待...'
-        time.sleep(10)
-
-    print '上传完成，已成功'
-    time.sleep(5)
-    oneword = driver.find_element_by_xpath("//input[@id='oneword']")
-    oneword.clear()
-    oneword.send_keys(ONEWORD)
-
-    sm = driver.find_element_by_xpath("//textarea[@name='test_desc']")
-    sm.clear()
-    sm.send_keys(u'无')
-    if isneedupdatesamever(driver) == True:
-        print '需要同版本更新...'
-        updatesamever(driver)
-    else:
-        print '不需要同版本更新...'
-        updatenormal(driver)
-
-    driver.close()
+    oppo = OPPO(URL)
+    oppo.publishPackage()
+    #结束操作
+    oppo.uninit()

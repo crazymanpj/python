@@ -2,21 +2,23 @@
 # encoding=utf-8
 # Date:    2018-05-11
 # Author:  pangjian
-from yyb_config import URL,USERNAME,PASSWORD, UPDATE_URL, PACKAGEMD5, PACKAGEPATH, IS_UPDATE_TEXT
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD
+from yyb_config import URL,USERNAME,PASSWORD, UPDATE_URL,CHANNELNO,UPDATE_SHARE_URL, CHANNELNO_SHARE
+from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
 from selenium import webdriver
-from selenium.common.exceptions import RemoteDriverServerException
+from selenium.common.exceptions import WebDriverException,NoSuchElementException, StaleElementReferenceException
 import sys,time,os
-from lib import mystr,commonlib, log
+from lib import mystr, log, androidhelper
 import traceback
+from packagePubMarket import PackagePubMarket
 
-logger = log.Log('yyb.txt')
+class YYB(PackagePubMarket):
 
-class YYB(object):
-
-    def __init__(self, url):
-        self.driver = webdriver.Chrome()
-        self.url = url
+    def init(self):
+        self.logger = log.Log('yyb.txt')
+        self.packagePath = self.getFilePathInDir(self.getPackageName())
+        self.logger.outMsg(self.packagePath)
+        self.packagePathShare = self.getFilePathInDir(self.getPackageNameShare())
+        self.logger.outMsg(self.packagePathShare)
 
     #<a class="link" hidefocus="true" id="switcher_plogin" href="javascript:void(0);" tabindex="8">帐号密码登录</a>
     # <input type="text" class="inputstyle" id="u" name="u" value="" tabindex="1">
@@ -45,28 +47,25 @@ class YYB(object):
             ret = False
         return ret
 
-
-    #<div class="form-col form-col1 txtarea-wrap"><textarea name="update_des" class="ui-txtarea" value="" validate="true" validate_type="empty|length|dirtySensitiveComment" validate_tip="请填写版本更新说明|内容字数为5个汉字以上、500个汉字以内|" maxlen="500" minlen="5" placeholder="5至500字内容"></textarea><div class="form-line" style="padding:0;text-align:right"><em class="tips"></em></div></div>
+    def isCorretUpdaateUrl_share(self):
+        appName = self.driver.find_element_by_xpath("//div[@class='app-name-wrap']/h3[1]")
+        title = appName.text.encode('utf-8')
+        self.logger.outMsg(title)
+        if title.decode('utf-8') == u'':
+            ret = True
+        else:
+            ret = False
+        return ret
 
     def closeNouseWindow(self):
         pass
-
-    def readtextfromfile(self):
-        try:
-            file = open(TEXTFIlEPATH, 'r')
-            text = file.read()
-        except:
-            print 'read file error'
-        finally:
-            file.close()
-        print text
-        return text
 
     def uploadPackage(self):
         time.sleep(5)
         self.driver.find_element_by_xpath("//div[@class='add-pic-after add-file-after']").click()
         time.sleep(2)
-        cmd = AU3PATH + ' ' + PACKAGEPATH
+        cmd = AU3PATH + ' ' + '"' + self.packagePath + '"'
+        self.logger.outMsg(cmd)
         os.system(cmd)
         time.sleep(5)
         uploadbutton = self.driver.find_element_by_xpath("//div[@class='add-pic-ing']")
@@ -76,11 +75,27 @@ class YYB(object):
 
         print '上传完成，已成功'
 
-    def filterText(self, text):
-        for i in BANNEDWORD:
-            if text.find(i) != -1:
-                print '不允许更新该文案：' + i
-                sys.exit(0)
+    def uploadPackage_share(self):
+        time.sleep(5)
+        self.driver.switch_to_frame(self.driver.find_element_by_id('ifm-ability'))
+        self.driver.find_element_by_link_text('我要修改').click()
+        self.driver.switch_to.parent_frame()
+        self.logger.outMsg('wait')
+        time.sleep(10)
+        self.driver.switch_to_frame(self.driver.find_element_by_xpath("//div[@class='main-content']/iframe[1]"))
+        uploadButton = self.driver.find_element_by_xpath("//div[@class='upload-channelpkg-wrapper']/span[1]/div[2]/input[1]")
+        time.sleep(2)
+        uploadButton.send_keys(self.packagePathShare)
+        time.sleep(2)
+        try:
+            uploadBar = self.driver.find_element_by_class_name('upload-progress-val')
+            while uploadBar.is_displayed() == True:
+                self.logger.outMsg('上传中，请等待')
+                time.sleep(5)
+        except StaleElementReferenceException as e:
+            time.sleep(3)
+            self.driver.find_element_by_class_name('aui_state_highlight').click()
+            self.logger.outMsg('上传完成')
 
     def updateText(self):
         print '需要更新文案'
@@ -110,16 +125,38 @@ class YYB(object):
             f = f.f_back
         return retStr
 
+    def getPackageName(self):
+        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
+
+    def getPackageNameShare(self):
+        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO_SHARE
+
+    def getApkVer(self):
+        return androidhelper.getApkVersionCode(apkfilepath=self.packagePath)
+
+    def WaitReview(self):
+        title = u'审核中，暂时不能操作'
+        time.sleep(5)
+        self.driver.get(UPDATE_URL)
+        time.sleep(3)
+        while title == u'审核中，暂时不能操作':
+            self.logger.outMsg('审核中，继续等待...')
+            time.sleep(180)
+            #超时处理
+            try:
+                self.driver.get(UPDATE_URL)
+                time.sleep(5)
+                title = self.driver.find_element_by_xpath("//div[@class='sub-content']/div[1]/div[1]/p[1]").text
+            except NoSuchElementException as e:
+                self.logger.outMsg('审核通过，继续发布分享渠道...')
+                return True
+
     def publishPackage(self):
-        # try:
-        #     ret = 1 / 0
-        # except Exception as e:
-        #     logger.outError('除0失败: ' + str(e))
-        #
-        # sys.exit(0)
+        self.logger.outMsg('start')
 
         try:
             self.driver.get(URL)
+            self.driver.maximize_window()
             time.sleep(1)
             self.login(USERNAME, PASSWORD)
             time.sleep(5)
@@ -128,16 +165,7 @@ class YYB(object):
             if self.iscorretupdateurl() == False:
                 print ''
 
-            try:
-                if commonlib.md5_file(PACKAGEPATH) != PACKAGEMD5:
-                    print 'MD5不一致，退出'
-                    sys.exit()
-            except Exception as e:
-                print '文件路径不在，退出'
-                self.driver.quit()
-                sys.exit()
-
-
+            self.verifyVersionCode()
             self.uploadPackage()
             time.sleep(3)
             if IS_UPDATE_TEXT == True:
@@ -145,18 +173,24 @@ class YYB(object):
 
             time.sleep(3)
             self.commit()
-        except RemoteDriverServerException as e:
-            print str(e)
-            print 'selenium error'
+
+            self.WaitReview()
+            #update share link
+            self.driver.get(UPDATE_SHARE_URL)
+            if self.isCorretUpdaateUrl_share() == False:
+                self.logger.outMsg('')
+                sys.exit()
+
+            self.uploadPackage_share()
+            time.sleep(20)
+            self.logger.outMsg('发布结束')
+
+        except WebDriverException as e:
+            self.logger.outError('selenium error: ' + str(e))
+            time.sleep(200)
             sys.exit()
-
-
-    def __del__(self):
-        print 'close chrome webdriver'
-        self.driver.close()
-
-
 
 if __name__ == '__main__':
     yyb = YYB(URL)
     yyb.publishPackage()
+    yyb.uninit()

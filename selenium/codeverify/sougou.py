@@ -2,21 +2,20 @@
 # encoding=utf-8
 # Date:    2018-05-24
 # Author:  pangjian
-from sougou_config import URL, USERNAME, PASSWORD,UPDATE_URL, PACKAGEPATH, IS_UPDATE_TEXT
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD
+from sougou_config import URL, USERNAME, PASSWORD,UPDATE_URL,CHANNELNO
+from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException, StaleElementReferenceException
 import sys,time,os
 from lib import commonlib, log, mystr
+from packagePubMarket import PackagePubMarket
 
-logger = log.Log('sougou.txt')
+class SOUGOU(PackagePubMarket):
 
-class SOUGOU(object):
-
-    def __init__(self, url):
-        self.driver = webdriver.Chrome()
-        self.url = url
-
+    def init(self):
+        self.logger = log.Log('sougou.txt')
+        self.packagePath = self.getFilePathInDir(self.getPackageName())
+        self.logger.outMsg(self.packagePath)
 
     def login(self, username, password):
         self.driver.maximize_window()
@@ -36,31 +35,17 @@ class SOUGOU(object):
     def iscorretupdateurl(self):
         appName = self.driver.find_element_by_xpath("//div[@class='app-detail']/div[1]/h3[1]")
         title = appName.text
-        logger.outMsg(title)
-        logger.outMsg(type(title))
-        # logger.outMsg(mystr.getstrencodingtype(title))
+        self.logger.outMsg(title)
+        self.logger.outMsg(type(title))
+        # self.logger.outMsg(mystr.getstrencodingtype(title))
         if title.strip(" ") == u'':
             ret = True
         else:
             ret = False
         return ret
 
-    def readtextfromfile(self):
-        try:
-            file = open(TEXTFIlEPATH, 'r')
-            text = file.read()
-        except:
-            print 'read file error'
-        finally:
-            file.close()
-        print text
-        return text
-
-    def filterText(self, text):
-        for i in BANNEDWORD:
-            if text.find(i) != -1:
-                print '不允许更新该文案：' + i
-                sys.exit(0)
+    def getPackageName(self):
+        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
 
     def updateText(self):
         print '需要更新文案'
@@ -74,22 +59,22 @@ class SOUGOU(object):
         time.sleep(5)
         self.driver.find_element_by_class_name('webuploader-container').click()
         time.sleep(2)
-        cmd = AU3PATH + ' ' + PACKAGEPATH
+        cmd = AU3PATH + ' ' + self.packagePath
         os.system(cmd)
         time.sleep(5)
         processbar = self.driver.find_element_by_xpath("//div[@class='progress']")
 
         try:
             while processbar.is_displayed() != False:
-                logger.outMsg('上传中，请等待...')
+                self.logger.outMsg('上传中，请等待...')
                 time.sleep(10)
         except StaleElementReferenceException as e:
-            logger.outMsg('上传完成')
+            self.logger.outMsg('上传完成')
 
-        logger.outMsg('上传完成，已成功')
+        self.logger.outMsg('上传完成，已成功')
 
     def commit(self):
-        logger.outMsg('commit')
+        self.logger.outMsg('commit')
         self.driver.find_element_by_id('submit').click()
         time.sleep(20)
 
@@ -102,10 +87,11 @@ class SOUGOU(object):
             self.driver.get(UPDATE_URL)
             time.sleep(5)
             if self.iscorretupdateurl() == False:
-                logger.outMsg('')
+                self.logger.outMsg('')
                 sys.exit()
 
             self.driver.find_element_by_link_text('编辑更新').click()
+            self.verifyVersionCode()
             self.uploadPackage()
             time.sleep(3)
             if IS_UPDATE_TEXT == True:
@@ -116,13 +102,11 @@ class SOUGOU(object):
             time.sleep(10)
 
         except Exception as e:
-            logger.outError("使用selenium启动chrome出错：" + str(e))
+            self.logger.outError("使用selenium启动chrome出错：" + str(e))
             sys.exit()
 
-    def __del__(self):
-        logger.outMsg("close chrome webdriver")
-        self.driver.close()
 
 if __name__ == '__main__':
     sougou = SOUGOU(URL)
     sougou.publishPackage()
+    sougou.uninit()
