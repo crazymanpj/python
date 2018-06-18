@@ -9,7 +9,7 @@ from selenium import webdriver
 from PIL import Image
 from lib.verifybreak import VerifyBreak
 from selenium.common.exceptions import NoSuchElementException
-import os,requests
+import os
 from packagePubMarket import PackagePubMarket
 from lib import log
 
@@ -37,16 +37,16 @@ class OPPO(PackagePubMarket):
         self.logger.outMsg('resetverifycode')
         self.driver.find_element_by_xpath("//a[@class='captcha-handler']").click()
         time.sleep(2)
-        self.driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-        im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-        # box = (390,460,490,500)
-        box = (386,466,476,496)
+        self.driver.save_screenshot(r'screenshots/image1.png')
+        im = Image.open(r'screenshots/image1.png')
+        # box = (395, 395, 485, 425)
+        box = (938 - 10, 412 - 10, 938 + 90 + 10, 412 + 30 + 10)
         region = im.crop(box)
-        codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
+        codeimgpath = r'screenshots/image2.png'
         region.save(codeimgpath)
         # time.sleep(500)
         vb = VerifyBreak(codeimgpath)
-        verifycode = vb.getverifycode()
+        verifycode = vb.img_to_string_txai()
         self.logger.outMsg('verifycode: ' + verifycode)
         return verifycode
 
@@ -58,6 +58,8 @@ class OPPO(PackagePubMarket):
         time.sleep(1)
         k_verifycode = self.driver.find_element_by_name('verifyCode')
         k_verifycode.send_keys(verifycode)
+
+        self.driver.find_element_by_name('singlebutton').click()
 
     def resetdialog(self):
         self.logger.outMsg('resetdialog')
@@ -79,7 +81,7 @@ class OPPO(PackagePubMarket):
             time.sleep(2)
             self.login(verifycode)
             time.sleep(2)
-            if self.isLogInSuccess() == True:
+            if self.isLogInSuccess() is True:
                 return True,i
             else:
                 continue
@@ -161,7 +163,7 @@ class OPPO(PackagePubMarket):
         url = codeImg.get_attribute('src')
         self.logger.outMsg(url)
         try:
-            r = requests.get(url, verify = False)
+            r = requests.get(url, verify=False)
             f_handle = open('codeImg.png', 'wb')
             f_handle.write(r.content)
             self.logger.outMsg('donwload codeimg ok')
@@ -173,16 +175,17 @@ class OPPO(PackagePubMarket):
     def publishPackage(self):
         self.logger.outMsg('start')
         self.driver.get(URL)
+        self.driver.maximize_window()
 
-        self.driver.save_screenshot(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-        im = Image.open(r'd:\kuaipan\python\autopublishpackage\script\image1.png')
-        # box = (390,390,490,430)
-        box = (387,396,477,426)
+        self.driver.save_screenshot(r'screenshots/firstimage1.png')
+        im = Image.open(r'screenshots/firstimage1.png')
+        # box = (395, 395, 485, 425)
+        box = (933 - 5, 310 - 5, 980 + 90 + 5, 320 + 30 + 5)
         region = im.crop(box)
-        codeimgpath = r'd:\kuaipan\python\autopublishpackage\script\image2.png'
+        codeimgpath = r'screenshots/firstimage2.png'
         region.save(codeimgpath)
         vb = VerifyBreak(codeimgpath)
-        verifycode = vb.getverifycode()
+        verifycode = vb.img_to_string_txai()
         self.login(verifycode)
         time.sleep(3)
 
@@ -191,7 +194,7 @@ class OPPO(PackagePubMarket):
         else:
             self.logger.outMsg('登录失败')
             ret, trynum = self.callloginloop(verifycode, 20)
-            if ret == True:
+            if ret is True:
                 self.logger.outMsg('登录成功')
                 self.logger.outMsg('登录次数：' + str(trynum))
             else:
@@ -231,7 +234,7 @@ class OPPO(PackagePubMarket):
 
         self.driver.find_element_by_id('radios-5').click()
 
-        if self.isneedupdatesamever() == True:
+        if self.isneedupdatesamever() is True:
             self.logger.outMsg('需要同版本更新...')
             self.updatesamever()
         else:
