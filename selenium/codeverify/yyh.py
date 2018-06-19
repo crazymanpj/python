@@ -2,19 +2,26 @@
 # encoding=utf-8
 # Date:    2018-05-25
 # Author:  pangjian
-from yyh_config import URL, USERNAME, PASSWORD, UPDATE_URL, PACKAGEPATH, IS_UPDATE_TEXT
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD
-from selenium import webdriver
+from yyh_config import URL, USERNAME, PASSWORD, UPDATE_URL, CHANNELNO
+from gobal_config import IS_UPDATE_TEXT, AU3PATH
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.action_chains import ActionChains
 import sys,time,os
-from lib import commonlib, log
+from lib import log
 from packagePubMarket import PackagePubMarket
-
-logger = log.Log(u'')
 
 class YYH(PackagePubMarket):
 
+    def init(self):
+        self.logger = log.Log('yyh.txt')
+        self.packagePath = self.getFilePathInDir(self.getPackageName())
+        self.logger.outMsg(self.packagePath)
+
+    def getPackageName(self):
+        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
+
     def login(self, username, password):
+        self.logger.outMsg('login')
         k_username = self.driver.find_element_by_name('login')
         k_password = self.driver.find_element_by_name('password')
         login_button = self.driver.find_element_by_xpath("//input[@type='image']")
@@ -39,22 +46,28 @@ class YYH(PackagePubMarket):
         return ret
 
     def uploadPackage(self):
-        print 'kkk'
+        time.sleep(5)
         uploadbutton = self.driver.find_element_by_xpath("//div[@id='uploadapk']/div[1]/div[1]/input[1]")
+        action = ActionChains(self.driver)
+        action.move_to_element(uploadbutton).perform()
+        time.sleep(5)
+        uploadbutton.send_keys(self.packagePath)
         time.sleep(2)
-        uploadbutton.send_keys(PACKAGEPATH)
-        time.sleep(10)
+        # cmd = AU3PATH + ' ' + '"' + self.packagePath + '"'
+        # self.logger.outMsg(cmd)
+        # os.system(cmd)
+        time.sleep(5)
         buttonText = self.driver.find_element_by_class_name('button-text')
         divUpload = self.driver.find_element_by_id('uploadapk')
         while buttonText.text != '上传APk' and buttonText.text != '':
-            logger.outMsg(buttonText.text)
-            logger.outMsg('上传中，等待...')
+            self.logger.outMsg(buttonText.text)
+            self.logger.outMsg('上传中，等待...')
             time.sleep(10)
 
-        logger.outMsg('上传完成，已成功')
+        self.logger.outMsg('上传完成，已成功')
 
     def updateText(self):
-        logger.outMsg('需要更新文案')
+        self.logger.outMsg('需要更新文案')
         text = self.readtextfromfile()
         self.filterText(text)
         textarea = self.driver.find_element_by_id('updatemsg')
@@ -62,12 +75,12 @@ class YYH(PackagePubMarket):
         textarea.send_keys(text.decode())
 
     def commit(self):
-        logger.outMsg('commit')
+        self.logger.outMsg('commit')
         # self.driver.find_elemnt_by_id('submit').click()
         time.sleep(20)
 
     def publishPackage(self):
-        logger.outMsg('start')
+        self.logger.outMsg('start')
         try:
             self.driver.get(URL)
             time.sleep(1)
@@ -83,6 +96,8 @@ class YYH(PackagePubMarket):
                 sys.exit()
             self.driver.find_element_by_id('switch').click()
             time.sleep(1)
+            self.verifyVersionCode()
+            time.sleep(1)
             self.uploadPackage()
             time.sleep(3)
             if IS_UPDATE_TEXT == True:
@@ -91,11 +106,11 @@ class YYH(PackagePubMarket):
             time.sleep(3)
             self.commit()
             time.sleep(10)
-            time.sleep(200)
-        except Exception as e:
-            logger.outError("使用selenium启动chrome出错：" + str(e))
+        except WebDriverException as e:
+            self.logger.outError("selenium error：" + str(e))
             sys.exit()
 
 if __name__ == '__main__':
     yyh = YYH(URL)
     yyh.publishPackage()
+    yyh.uninit()
