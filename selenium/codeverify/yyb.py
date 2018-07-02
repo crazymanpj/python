@@ -2,8 +2,8 @@
 # encoding=utf-8
 # Date:    2018-05-11
 # Author:  pangjian
-from yyb_config import URL,USERNAME,PASSWORD, UPDATE_URL,CHANNELNO,UPDATE_SHARE_URL, CHANNELNO_SHARE
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
+from yyb_config import URL,USERNAME,PASSWORD, UPDATE_URL,CHANNELNO,UPDATE_SHARE_URL, CHANNELNO_SHARE, CHANNELNO_GW
+from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT, APPNAME, ERROR_WRONG_UPDATE_URL
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException,NoSuchElementException, StaleElementReferenceException
 import sys,time,os
@@ -20,10 +20,6 @@ class YYB(PackagePubMarket):
         self.packagePathShare = self.getFilePathInDir(self.getPackageNameShare())
         self.logger.outMsg(self.packagePathShare)
 
-    #<a class="link" hidefocus="true" id="switcher_plogin" href="javascript:void(0);" tabindex="8">帐号密码登录</a>
-    # <input type="text" class="inputstyle" id="u" name="u" value="" tabindex="1">
-    #<input type="password" class="inputstyle password" id="p" name="p" value="" maxlength="16" tabindex="2">
-    #<input type="submit" tabindex="6" value="登 录" class="btn" id="login_button">
     def login(self, username, password):
         # self.driver.find_element_by_xpath("//div[@id='bottom_qlogin']/a[1]").click()
         self.driver.switch_to_frame(self.driver.find_element_by_xpath("//iframe[@id='login_frame']"))
@@ -40,8 +36,8 @@ class YYB(PackagePubMarket):
         appName = self.driver.find_element_by_xpath("//div[@class='app-name-wrap']/h3[1]")
         # print mystr.getstrencodingtype(appName.text.encode('utf-8'))
         title = appName.text.encode('utf-8')
-        print title
-        if title.decode('utf-8') == u'':
+        self.logger.outMsg(title)
+        if title.decode('utf-8') == APPNAME:
             ret = True
         else:
             ret = False
@@ -51,7 +47,7 @@ class YYB(PackagePubMarket):
         appName = self.driver.find_element_by_xpath("//div[@class='app-name-wrap']/h3[1]")
         title = appName.text.encode('utf-8')
         self.logger.outMsg(title)
-        if title.decode('utf-8') == u'':
+        if title.decode('utf-8') == APPNAME:
             ret = True
         else:
             ret = False
@@ -67,13 +63,13 @@ class YYB(PackagePubMarket):
         cmd = AU3PATH + ' ' + '"' + self.packagePath + '"'
         self.logger.outMsg(cmd)
         os.system(cmd)
-        time.sleep(5)
+        time.sleep(3)
         uploadbutton = self.driver.find_element_by_xpath("//div[@class='add-pic-ing']")
         while uploadbutton.is_displayed() != False:
-            print '上传中，请等待...'
-            time.sleep(10)
+            self.logger.outMsg('上传中，请等待...')
+            time.sleep(2)
 
-        print '上传完成，已成功'
+        self.logger.outMsg('上传完成，已成功')
 
     def uploadPackage_share(self):
         time.sleep(5)
@@ -82,7 +78,7 @@ class YYB(PackagePubMarket):
         self.driver.switch_to.parent_frame()
         self.logger.outMsg('wait')
         time.sleep(10)
-        self.driver.switch_to_frame(self.driver.find_element_by_xpath("//div[@class='main-content']/iframe[1]"))
+        self.driver.switch_to_frame(self.driver.find_element_by_xpath("//div[@class='main-content'][1]/iframe[1]"))
         uploadButton = self.driver.find_element_by_xpath("//div[@class='upload-channelpkg-wrapper']/span[1]/div[2]/input[1]")
         time.sleep(2)
         uploadButton.send_keys(self.packagePathShare)
@@ -97,8 +93,64 @@ class YYB(PackagePubMarket):
             self.driver.find_element_by_class_name('aui_state_highlight').click()
             self.logger.outMsg('上传完成')
 
+    def uploadPackage_loop(self):
+        self.uploadPackage_bychannel()
+        # try:
+        #     self.uploadPackage_bychannel()
+        # except NoSuchElementException as e:
+        #     self.logger.outMsg('uploadPackage_loop try refresh')
+        #     time.sleep(5)
+        #     self.uploadPackage_loop()
+
+    def uploadPackage_bychannel(self):
+        packagePath = ''
+        self.logger.outMsg('UPDATE_SHARE_URL')
+        self.driver.get(UPDATE_SHARE_URL)
+        if self.isCorretUpdaateUrl_share() == False:
+            self.logger.outMsg(ERROR_WRONG_UPDATE_URL)
+            sys.exit()
+
+        #test
+        time.sleep(5)
+        self.driver.switch_to_frame(self.driver.find_element_by_id('ifm-ability'))
+        self.driver.find_element_by_link_text('我要修改').click()
+        self.driver.switch_to.parent_frame()
+        self.logger.outMsg('wait')
+        time.sleep(10)
+        self.driver.switch_to_frame(self.driver.find_element_by_xpath("//div[@class='main-content'][1]/iframe[1]"))
+        for i in range(1,3):
+            channel = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[1]"%(str(i)))
+
+            if channel.text.find('800003') >= 0:
+                self.logger.outMsg('800003')
+                self.logger.outMsg('channel: ' + channel.text)
+                packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_GW))
+                uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
+                time.sleep(2)
+                uploadButton.send_keys(packagePath)
+                self.logger.outMsg('upload success 800003')
+            elif channel.text.find('800036') >= 0:
+                self.logger.outMsg('800036')
+                self.logger.outMsg('channel: ' + channel.text)
+                packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_SHARE))
+                uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
+                time.sleep(2)
+                uploadButton.send_keys(packagePath)
+                self.logger.outMsg('upload success 800036')
+
+            time.sleep(2)
+            try:
+                uploadBar = self.driver.find_element_by_class_name('upload-progress-val')
+                while uploadBar.is_displayed() == True:
+                    self.logger.outMsg('上传中，请等待')
+                    time.sleep(2)
+            except StaleElementReferenceException as e:
+                time.sleep(3)
+                self.driver.find_element_by_class_name('aui_state_highlight').click()
+                self.logger.outMsg('上传完成')
+
     def updateText(self):
-        print '需要更新文案'
+        self.logger.outMsg('需要更新文案')
         text = self.readtextfromfile()
         self.filterText(text)
         textarea = self.driver.find_element_by_name('update_des')
@@ -106,7 +158,7 @@ class YYB(PackagePubMarket):
         textarea.send_keys(text.decode())
 
     def commit(self):
-        print 'commit'
+        self.logger.outMsg('commit')
         self.driver.find_element_by_id('j-submit-btn').click()
         time.sleep(3)
         self.driver.find_element_by_id('j-confirm-yes').click()
@@ -130,6 +182,9 @@ class YYB(PackagePubMarket):
 
     def getPackageNameShare(self):
         return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO_SHARE
+
+    def getPackageNameByChannelNo(self, channelno):
+        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + channelno
 
     def getApkVer(self):
         return androidhelper.getApkVersionCode(apkfilepath=self.packagePath)
@@ -163,7 +218,7 @@ class YYB(PackagePubMarket):
             self.driver.get(UPDATE_URL)
             time.sleep(5)
             if self.iscorretupdateurl() == False:
-                print ''
+                self.logger.outMsg(ERROR_WRONG_UPDATE_URL)
 
             self.verifyVersionCode()
             self.uploadPackage()
@@ -175,13 +230,10 @@ class YYB(PackagePubMarket):
             self.commit()
 
             self.WaitReview()
-            #update share link
-            self.driver.get(UPDATE_SHARE_URL)
-            if self.isCorretUpdaateUrl_share() == False:
-                self.logger.outMsg('')
-                sys.exit()
+            # update share link
+            self.uploadPackage_loop()
+            # self.uploadPackage_share()
 
-            self.uploadPackage_share()
             time.sleep(20)
             self.logger.outMsg('发布结束')
 
