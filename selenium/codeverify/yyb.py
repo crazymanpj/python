@@ -107,9 +107,8 @@ class YYB(PackagePubMarket):
         self.logger.outMsg('UPDATE_SHARE_URL')
         self.driver.get(UPDATE_SHARE_URL)
         if self.isCorretUpdaateUrl_share() == False:
-            self.logger.outMsg(ERROR_WRONG_UPDATE_URL)
+            self.logger.outError(self.name + '\n' + ERROR_WRONG_UPDATE_URL, True)
             sys.exit()
-
         #test
         time.sleep(5)
         self.driver.switch_to_frame(self.driver.find_element_by_id('ifm-ability'))
@@ -238,8 +237,8 @@ class YYB(PackagePubMarket):
             self.logger.outMsg('发布结束')
 
         except WebDriverException as e:
-            self.logger.outError('selenium error: ' + str(e))
-            time.sleep(200)
+            self.logger.outError(self.name + '\n' + 'selenium error: ' + str(e), True)
+            time.sleep(20)
             sys.exit()
 
 if __name__ == '__main__':

@@ -12,7 +12,9 @@ class PackagePubMarket(object):
 
     def __init__(self, url):
         try:
-            self.driver = webdriver.Chrome()
+            option = webdriver.ChromeOptions()
+            option.add_argument('disable-infobars')
+            self.driver = webdriver.Chrome(chrome_options=option)
             self.url = url
             # self.logger = log.Log('publog.txt')
             self.packagePath = ''
@@ -21,12 +23,17 @@ class PackagePubMarket(object):
             print '启动chrome失败，重试中...'
             self.__init__(url)
 
+    @property
+    def name(self):
+        return str(type(self))
+
     def readtextfromfile(self):
         try:
             file = open(TEXTFIlEPATH, 'r')
             text = file.read()
         except Exception as e:
-            self.logger.outError('read file error')
+            self.logger.outError(self.name + '\n' + 'read file error',True)
+            sys.exit()
         finally:
             file.close()
 
@@ -35,7 +42,7 @@ class PackagePubMarket(object):
     def filterText(self, text):
         for i in BANNEDWORD:
             if text.find(i) != -1:
-                self.logger.outMsg('不允许更新该文案：' + i)
+                self.logger.outError(self.name + '\n' + '不允许更新该文案：' + i, True)
                 sys.exit(0)
 
 
@@ -51,10 +58,10 @@ class PackagePubMarket(object):
         try:
             packageVer = androidhelper.getApkVersionCode(apkfilepath=self.packagePath)
             if packageVer != APKVER:
-                self.logger.outMsg('apk版本号不一致，发布退出')
+                self.logger.outError(self.name + '\n' + 'apk版本号不一致，发布退出', True)
                 sys.exit()
         except Exception as e:
-            self.logger.outError('文件路径不在，退出' + str(e))
+            self.logger.outError(self.name + '\n' + '文件路径不在，退出\n' + str(e), True)
             sys.exit()
 
     def uninit(self):
