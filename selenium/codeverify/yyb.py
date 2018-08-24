@@ -118,7 +118,15 @@ class YYB(PackagePubMarket):
         self.logger.outMsg('wait')
         time.sleep(10)
         self.driver.switch_to_frame(self.driver.find_element_by_xpath("//div[@class='main-content'][1]/iframe[1]"))
-        for i in range(1,3):
+        table1 = self.driver.find_element_by_class_name('myapp-mod-upload-contianer')
+        table_rows = table1.find_elements_by_tag_name('tr')
+        self.logger.outMsg('table_rows: ')
+        self.logger.outMsg(len(table_rows))
+        if len(table_rows) <= 0:
+            self.logger.outError('获取tr个数失败，退出...', True)
+            sys.exit()
+
+        for i in range(1, len(table_rows) + 1):
             channel = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[1]"%(str(i)))
 
             if channel.text.find('800003') >= 0:
@@ -129,6 +137,7 @@ class YYB(PackagePubMarket):
                 time.sleep(2)
                 uploadButton.send_keys(packagePath)
                 self.logger.outMsg('upload success 800003')
+                self.waitforfinish()
             elif channel.text.find('800036') >= 0:
                 self.logger.outMsg('800036')
                 self.logger.outMsg('channel: ' + channel.text)
@@ -137,7 +146,12 @@ class YYB(PackagePubMarket):
                 time.sleep(2)
                 uploadButton.send_keys(packagePath)
                 self.logger.outMsg('upload success 800036')
+                self.waitforfinish()
 
+            time.sleep(0.5)
+
+
+    def waitforfinish(self):
             time.sleep(2)
             try:
                 uploadBar = self.driver.find_element_by_class_name('upload-progress-val')

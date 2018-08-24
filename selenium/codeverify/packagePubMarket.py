@@ -58,6 +58,11 @@ class PackagePubMarket(object):
 
         return ''
 
+    def fortest(self):
+        time.sleep(5)
+        self.uninit()
+        sys.exit()
+
     def verifyVersionCode(self):
         try:
             packageVer = androidhelper.getApkVersionCode(apkfilepath=self.packagePath)
