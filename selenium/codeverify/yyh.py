@@ -3,7 +3,8 @@
 # Date:    2018-05-25
 # Author:  pangjian
 from yyh_config import URL, USERNAME, PASSWORD, UPDATE_URL, CHANNELNO
-from gobal_config import IS_UPDATE_TEXT, AU3PATH
+from gobal_config import IS_UPDATE_TEXT
+from const import AU3PATH
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.action_chains import ActionChains
 import sys,time,os
@@ -53,10 +54,6 @@ class YYH(PackagePubMarket):
         time.sleep(5)
         uploadbutton.send_keys(self.packagePath)
         time.sleep(2)
-        # cmd = AU3PATH + ' ' + '"' + self.packagePath + '"'
-        # self.logger.outMsg(cmd)
-        # os.system(cmd)
-        time.sleep(5)
         buttonText = self.driver.find_element_by_class_name('button-text')
         divUpload = self.driver.find_element_by_id('uploadapk')
         while buttonText.text != '上传APk' and buttonText.text != '':
@@ -76,7 +73,7 @@ class YYH(PackagePubMarket):
 
     def commit(self):
         self.logger.outMsg('commit')
-        # self.driver.find_elemnt_by_id('submit').click()
+        self.driver.find_element_by_id('submit').click()
         time.sleep(20)
 
     def publishPackage(self):
@@ -95,8 +92,6 @@ class YYH(PackagePubMarket):
                 logger.outMsg('')
                 sys.exit()
             self.driver.find_element_by_id('switch').click()
-            time.sleep(1)
-            self.verifyVersionCode()
             time.sleep(1)
             self.uploadPackage()
             time.sleep(3)

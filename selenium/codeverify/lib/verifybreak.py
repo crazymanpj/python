@@ -7,7 +7,7 @@ import apiutil
 # from singletonexecute import Singleton
 import os,sys
 sys.path.append('..')
-from gobal_config import APP_ID, APP_KEY
+from const import APP_ID, APP_KEY
 
 class VerifyBreak(object):
 

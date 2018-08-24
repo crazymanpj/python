@@ -4,7 +4,8 @@
 # Author:  pangjian
 import time,os
 from wostore_config import URL, USERNAME, PASSWORD, CHANNELNO, CORDLEFT, CORDRIGHT
-from gobal_config import AU3PATH, IS_UPDATE_TEXT, APPNAME
+from gobal_config import IS_UPDATE_TEXT
+from const import AU3PATH, APPNAME
 from selenium import webdriver
 from PIL import Image
 from lib.verifybreak import VerifyBreak
@@ -31,7 +32,7 @@ class WoStore(PackagePubMarket):
             chromeOpitons.add_experimental_option('prefs', prefs)
             self.driver = webdriver.Chrome(chrome_options=chromeOpitons)
             self.url = url
-            self.logger = log.Log('wostore.txt')
+            self.logger = log.Log('log/wostore.txt')
             self.packagePath = self.getFilePathInDir(self.getPackageName())
             self.logger.outMsg(self.packagePath)
         except WebDriverException as e:
@@ -114,6 +115,8 @@ class WoStore(PackagePubMarket):
         k_password.send_keys(PASSWORD)
         time.sleep(1)
         k_verifycode.send_keys(verifycode)
+        time.sleep(1)
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
 
         self.driver.find_element_by_id('login_sub').click()
 
@@ -143,10 +146,15 @@ class WoStore(PackagePubMarket):
                 continue
         return False,0
 
+    def fortest(self):
+        time.sleep(5)
+        self.uninit()
+        sys.exit()
+
     def publishPackage(self):
         self.logger.outMsg('start')
         self.driver.get(URL)
-        self.driver.maximize_window()
+        self.driver.set_window_size(1366,768)
         time.sleep(1)
         self.driver.find_element_by_link_text('登录').click()
         time.sleep(5)

@@ -4,7 +4,8 @@
 # Author:  pangjian
 import sys,time
 from oppo_config import URL, UPDATEURL, ONEWORD, USERNAME, PASSWORD, CHANNELNO
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
+from gobal_config import IS_UPDATE_TEXT
+from const import TEXTFIlEPATH, AU3PATH, BANNEDWORD
 from selenium import webdriver
 from PIL import Image
 from lib.verifybreak import VerifyBreak
@@ -16,9 +17,13 @@ from lib import log
 class OPPO(PackagePubMarket):
 
     def init(self):
-        self.logger = log.Log('oppo.txt')
+        self.logger = log.Log('log/oppo.txt')
         self.packagePath = self.getFilePathInDir(self.getPackageName())
         self.logger.outMsg(self.packagePath)
+        self.x1 = 659
+        self.y1 = 244
+        self.x2 = 656
+        self.y2 = 308
 
     def getPackageName(self):
         return 'cmgamemaster_oppo_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
@@ -39,8 +44,10 @@ class OPPO(PackagePubMarket):
         time.sleep(2)
         self.driver.save_screenshot(r'screenshots/image1.png')
         im = Image.open(r'screenshots/image1.png')
-        # box = (395, 395, 485, 425)
-        box = (938 - 10, 412 - 10, 938 + 90 + 10, 412 + 30 + 10)
+        # box = (397 -10, 467 -10, 397 + 90, 467 +30 +10)
+        # box = (938 - 10, 412 - 10, 938 + 90 + 10, 412 + 30 + 10)
+        # box = (705 - 10, 278 - 10, 705 + 90 + 10, 278 + 30 + 10)
+        box = (self.x2 - 5, self.y2 - 5, self.x2 + 90 + 5, self.y2 + 30 + 5)
         region = im.crop(box)
         codeimgpath = r'screenshots/image2.png'
         region.save(codeimgpath)
@@ -133,12 +140,12 @@ class OPPO(PackagePubMarket):
 
         cmd = AU3PATH + ' ' + self.packagePath
         os.system(cmd)
-        time.sleep(10)
+        time.sleep(5)
         uploadbutton = self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']/span[1]")
         self.logger.outMsg(uploadbutton.text)
         while uploadbutton.text != '上传':
             self.logger.outMsg('上传中，等待...')
-            time.sleep(10)
+            time.sleep(5)
 
         self.logger.outMsg('上传完成，已成功')
         time.sleep(5)
@@ -172,15 +179,23 @@ class OPPO(PackagePubMarket):
         finally:
             f_handle.close()
 
+    def fortest(self):
+        time.sleep(5)
+        self.uninit()
+        sys.exit()
+
     def publishPackage(self):
         self.logger.outMsg('start')
         self.driver.get(URL)
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
+        self.driver.set_window_size(1366,768)
+
 
         self.driver.save_screenshot(r'screenshots/firstimage1.png')
         im = Image.open(r'screenshots/firstimage1.png')
-        # box = (395, 395, 485, 425)
-        box = (933 - 5, 310 - 5, 980 + 90 + 5, 320 + 30 + 5)
+        # box = (933 - 5, 310 - 5, 980 + 90 + 5, 320 + 30 + 5)
+        box = (self.x1 - 5, self.y1 - 5, self.x1 + 90 + 5, self.y1 + 30 + 5)
+        # box = (938 - 5, 392 - 5, 938 + 90 + 5, 392 + 30 + 5)
         region = im.crop(box)
         codeimgpath = r'screenshots/firstimage2.png'
         region.save(codeimgpath)
@@ -215,12 +230,12 @@ class OPPO(PackagePubMarket):
 
         cmd = AU3PATH + ' ' + self.packagePath
         os.system(cmd)
-        time.sleep(10)
+        time.sleep(5)
         uploadbutton = self.driver.find_element_by_xpath("//div[@class='apk-uploader upload-button clickable']/span[1]")
         self.logger.outMsg(uploadbutton.text)
         while uploadbutton.text != '上传':
             self.logger.outMsg('上传中，等待...')
-            time.sleep(10)
+            time.sleep(5)
 
         self.logger.outMsg('上传完成，已成功')
         time.sleep(5)

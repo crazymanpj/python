@@ -2,7 +2,8 @@
 # encoding=utf-8
 # Date:    2018-05-31
 # Author:  pangjian
-from gobal_config import TEXTFIlEPATH, BANNEDWORD, DIR, APKVER
+from gobal_config import DIR, APKVER
+from const import TEXTFIlEPATH, BANNEDWORD
 from lib import log, androidhelper
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
@@ -16,7 +17,7 @@ class PackagePubMarket(object):
             option.add_argument('disable-infobars')
             self.driver = webdriver.Chrome(chrome_options=option)
             self.url = url
-            # self.logger = log.Log('publog.txt')
+            self.logger = log.Log('log/publog.txt')
             self.packagePath = ''
             self.init()
         except WebDriverException as e:
@@ -47,12 +48,15 @@ class PackagePubMarket(object):
 
 
     def getFilePathInDir(self, name):
+        self.logger.outMsg('dir: ' + DIR)
         for root, dirs, files in os.walk(DIR):
             for filename in files:
                 pattern = re.compile(name)
                 match = pattern.search(filename)
                 if match:
                     return os.path.join(root, filename)
+
+        return ''
 
     def verifyVersionCode(self):
         try:

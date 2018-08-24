@@ -3,7 +3,8 @@
 # Date:    2018-06-01
 # Author:  pangjian
 from lenovo_config import URL, USERNAME, PASSWORD, UPDATE_URL, CHANNELNO
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT, APKVER
+from gobal_config import IS_UPDATE_TEXT
+from const import TEXTFIlEPATH, AU3PATH, BANNEDWORD
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 import sys,time,os
@@ -13,9 +14,9 @@ from packagePubMarket import PackagePubMarket
 class Lenovo(PackagePubMarket):
 
     def init(self):
-        self.logger = log.Log('lenovo.txt')
+        self.logger = log.Log('log/lenovo.txt')
         self.packagePath = self.getFilePathInDir(self.getPackageName())
-        self.logger.outMsg(self.packagePath)
+        self.logger.outMsg('packagepath: ' + self.packagePath)
 
     def login(self, username, password):
         self.driver.find_element_by_link_text('登录').click()
@@ -47,7 +48,8 @@ class Lenovo(PackagePubMarket):
         self.logger.outMsg('上传完成，已成功')
 
     def getPackageName(self):
-        return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
+        self.logger.outMsg('packagename: ' + 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO)
+        return 'cmgamemaster_oem_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
 
     def commit(self):
         self.logger.outMsg('commit')

@@ -3,7 +3,8 @@
 # Date:    2018-05-24
 # Author:  pangjian
 from sougou_config import URL, USERNAME, PASSWORD,UPDATE_URL,CHANNELNO
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT
+from gobal_config import IS_UPDATE_TEXT
+from const import TEXTFIlEPATH, AU3PATH, BANNEDWORD
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException, StaleElementReferenceException
 import sys,time,os
@@ -13,9 +14,9 @@ from packagePubMarket import PackagePubMarket
 class SOUGOU(PackagePubMarket):
 
     def init(self):
-        self.logger = log.Log('sougou.txt')
+        self.logger = log.Log('log/sougou.txt')
         self.packagePath = self.getFilePathInDir(self.getPackageName())
-        self.logger.outMsg(self.packagePath)
+        self.logger.outMsg('packagepath: ' + self.packagePath)
 
     def login(self, username, password):
         self.driver.maximize_window()
@@ -45,6 +46,7 @@ class SOUGOU(PackagePubMarket):
         return ret
 
     def getPackageName(self):
+        self.logger.outMsg('packagename: ' + 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO)
         return 'cmgamemaster_common_v' + r'\d+' + '_legu_signed_zipalign_sign_cn' + CHANNELNO
 
     def updateText(self):

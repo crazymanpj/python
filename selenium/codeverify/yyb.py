@@ -3,7 +3,8 @@
 # Date:    2018-05-11
 # Author:  pangjian
 from yyb_config import URL,USERNAME,PASSWORD, UPDATE_URL,CHANNELNO,UPDATE_SHARE_URL, CHANNELNO_SHARE, CHANNELNO_GW
-from gobal_config import TEXTFIlEPATH, AU3PATH, BANNEDWORD, IS_UPDATE_TEXT, APPNAME, ERROR_WRONG_UPDATE_URL
+from gobal_config import IS_UPDATE_TEXT
+from const import TEXTFIlEPATH, AU3PATH, BANNEDWORD, APPNAME, ERROR_WRONG_UPDATE_URL
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException,NoSuchElementException, StaleElementReferenceException
 import sys,time,os
@@ -14,7 +15,7 @@ from packagePubMarket import PackagePubMarket
 class YYB(PackagePubMarket):
 
     def init(self):
-        self.logger = log.Log('yyb.txt')
+        self.logger = log.Log('log/yyb.txt')
         self.packagePath = self.getFilePathInDir(self.getPackageName())
         self.logger.outMsg(self.packagePath)
         self.packagePathShare = self.getFilePathInDir(self.getPackageNameShare())
