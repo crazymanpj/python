@@ -55,7 +55,11 @@ class WoStore(PackagePubMarket):
 
     def uploadPackage(self):
         time.sleep(5)
+        try:
         self.driver.find_element_by_id('nextsave').click()
+        except NoSuchElementException as e:
+            self.logger.outMsg('不需要第一步')
+            pass
         time.sleep(3)
         self.driver.find_element_by_id('i_select_files').click()
         time.sleep(2)

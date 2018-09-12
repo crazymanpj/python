@@ -15,11 +15,12 @@ from packagePubMarket import PackagePubMarket
 class YYB(PackagePubMarket):
 
     def init(self):
-        self.logger = log.Log('log/yyb.txt')
+        self.logger = log.Log('log/yyb_sharelink.txt')
         self.packagePath = self.getFilePathInDir(self.getPackageName())
         self.logger.outMsg(self.packagePath)
         self.packagePathShare = self.getFilePathInDir(self.getPackageNameShare())
         self.logger.outMsg(self.packagePathShare)
+        self.channeltext = sys.argv[1]
 
     def login(self, username, password):
         # self.driver.find_element_by_xpath("//div[@id='bottom_qlogin']/a[1]").click()
@@ -126,27 +127,43 @@ class YYB(PackagePubMarket):
             self.logger.outError('获取tr个数失败，退出...', True)
             sys.exit()
 
-        for i in range(1, len(table_rows) + 1):
-            channel = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[1]"%(str(i)))
+        channellist = self.channeltext.split(';')
+        self.logger.outMsg(channellist)
+        if len(channellist) <= 0:
+            self.logger.outError('需要更新的渠道为空，退出...')
+            return False
 
-            if channel.text.find('800003') >= 0:
-                self.logger.outMsg('800003')
+        for i in range(1, len(table_rows) + 1):
+            channel = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[2]"%(str(i)))
+
+            for x in channellist:
+                if channel.text.find(x) >= 0:
+                    self.logger.outMsg(x)
                 self.logger.outMsg('channel: ' + channel.text)
-                packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_GW))
+                    packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(x))
                 uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
                 time.sleep(2)
                 uploadButton.send_keys(packagePath)
-                self.logger.outMsg('upload success 800003')
+                    self.logger.outMsg('upload success: ' + x)
                 self.waitforfinish()
-            elif channel.text.find('800036') >= 0:
-                self.logger.outMsg('800036')
-                self.logger.outMsg('channel: ' + channel.text)
-                packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_SHARE))
-                uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
-                time.sleep(2)
-                uploadButton.send_keys(packagePath)
-                self.logger.outMsg('upload success 800036')
-                self.waitforfinish()
+            # if channel.text.find('800003') >= 0:
+            #     self.logger.outMsg('800003')
+            #     self.logger.outMsg('channel: ' + channel.text)
+            #     packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_GW))
+            #     uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
+            #     time.sleep(2)
+            #     uploadButton.send_keys(packagePath)
+            #     self.logger.outMsg('upload success 800003')
+            #     self.waitforfinish()
+            # elif channel.text.find('800036') >= 0:
+            #     self.logger.outMsg('800036')
+            #     self.logger.outMsg('channel: ' + channel.text)
+            #     packagePath = self.getFilePathInDir(self.getPackageNameByChannelNo(CHANNELNO_SHARE))
+            #     uploadButton = self.driver.find_element_by_xpath("//tbody[@id='channelpkg-list']/tr[%s]/td[5]/div[3]/span[1]/div[2]/input[1]"%(str(i)))
+            #     time.sleep(2)
+            #     uploadButton.send_keys(packagePath)
+            #     self.logger.outMsg('upload success 800036')
+            #     self.waitforfinish()
 
             time.sleep(0.5)
 
@@ -229,6 +246,7 @@ class YYB(PackagePubMarket):
 
     def publishPackage(self):
         self.logger.outMsg('start')
+        self.logger.outMsg('need update: ' + self.channeltext);
 
         try:
             self.driver.get(URL)
