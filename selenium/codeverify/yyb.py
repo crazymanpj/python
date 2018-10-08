@@ -243,9 +243,9 @@ class YYB(PackagePubMarket):
             time.sleep(3)
             self.commit()
 
-            self.WaitReview()
-            # update share link
-            self.uploadPackage_loop()
+            # self.WaitReview()
+            #update share link
+            # self.uploadPackage_loop()
             # self.uploadPackage_share()
 
             time.sleep(20)
