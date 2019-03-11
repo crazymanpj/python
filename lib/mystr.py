@@ -10,5 +10,4 @@ def getstrencodingtype(str):
 
 
 if __name__ == '__main__':
-    # getstrencodingtype(u'st')
-    print getstrencodingtype('st')
+    pass
