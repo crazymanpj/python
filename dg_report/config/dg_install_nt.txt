@@ -1,0 +1,2 @@
+﻿	可分发安装   {dgi.instal_kff}，周比 {dgi.install_kff_week_d} ({dgi.install_kff_rate}%)
+② 内推安装：{dgi.install_neitui}，周比 {dgi.install_nt_week_d} ({dgi.install_nt_rate}%)

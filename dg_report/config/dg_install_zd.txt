@@ -1,0 +1,2 @@
+﻿2、精灵总安装 {dgi.totalinstall}，周比 {dgi.week_d} ({dgi.rate_d}%)
+① 主动安装：{dgi.install_zhudong}，周比 {dgi.install_zd_week_d} ({dgi.install_zd_rate}%)

@@ -1,0 +1,8 @@
+﻿{lbliucun.date_f} {lbliucun.week} 浏览器留存数据：
+
+1、浏览器昨日新安装总量{lbliucun.totalinstall}
+新安装卸载{lbliucun.newuninst}，新安装卸载率{lbliucun.newuninst_rate}%，新装卸载率同比{lbliucun.week_d_rate}%
+次留（{lbliucun.liucun1d_date}）{lbliucun.liucun1d_rate}%，同比{lbliucun.liucun1d_rate_weekd}%
+七留（{lbliucun.liucun7d_date}）{lbliucun.liucun7d_rate}%，同比{lbliucun.liucun7d_rate_weekd}%
+
+（{lbliucun.liucun1d_date}）分渠道留存变化top：

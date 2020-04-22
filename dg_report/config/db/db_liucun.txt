@@ -1,0 +1,8 @@
+﻿{dbliucun.date_f} {dbliucun.week} 毒霸留存数据：
+
+1、毒霸昨日新安装总量{dbliucun.totalinstall}，同比{dbliucun.totalinstall_d}({dbliucun.totalinstall_d_rate}%)
+新安装卸载{dbliucun.newuninst}，新安装卸载率{dbliucun.newuninst_rate}%，新装卸载率同比{dbliucun.week_d_rate}%
+次留（{dbliucun.liucun1d_date}）{dbliucun.liucun1d_rate}%，同比{dbliucun.liucun1d_rate_weekd}%
+七留（{dbliucun.liucun7d_date}）{dbliucun.liucun7d_rate}%，同比{dbliucun.liucun7d_rate_weekd}%
+
+（{dbliucun.liucun1d_date}）分渠道留存变化top：
