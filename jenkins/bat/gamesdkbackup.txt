@@ -1,0 +1,12 @@
+cd cmgameSdkDemo
+pwd
+
+echo "run game sdk"
+
+if [ -f "local.properties" ];then
+	rm local.properties
+fi
+
+#./gradlew clean
+
+./gradlew assembleRelease --stacktrace
