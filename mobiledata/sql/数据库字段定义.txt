@@ -1,0 +1,12 @@
+﻿           长度定义
+channelnum    20
+description   50
+description   50
+channel       50
+name          50
+url           150
+group         50
+md5           40
+details       2000
+filepath      1000
+hostver       20
