@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据详情页面</title>
+    <link id="js-theme-css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="anchor" content="wu song">
+
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script src="/static/js/angular.min.js"></script>
+    <script src="/static/js/cookie.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body ng-app="wsAPP">
+<!--头部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-grain"></span> 数据制作平台</a>
+
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span
+                            class="glyphicon glyphicon-tint"></span> 换肤 <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" id="js-theme-choose">
+                        <li><a href="javascript:void(0);" data-theme="slate">slate 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cerulean">Cerulean 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cyborg">Cyborg 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cosmo">Cosmo 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Sandstone">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Superhero">Superhero 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="United">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Lumen">Lumen 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Journal">Journal 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Paper">Paper 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Metro">Metro 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Flatly">Flatly 风格<span>（正在用）</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--登录后个人信息-->
+            <ul class="nav navbar-nav navbar-right" id="js-is-login" hidden>
+                <li class="dropdown">
+                    <a href="#" id="js-nickname" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--未登录-->
+            <div class="navbar-form navbar-right" id="js-not-login">
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-login"><span class="glyphicon glyphicon-user"></span> 登录</a>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-reg"><span class="glyphicon glyphicon-plus-sign"></span> 注册</a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+<!--登录框-->
+<div class="modal fade" id="js-login">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form id="js-login-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input id="username" type="text" name="email" class="form-control" placeholder="请输入邮箱" datatype="*1-16" required="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="请输入密码" required="">
+                        </div>
+                    </div>
+                    <p class="pull-left" style="color:red" hidden id="passwd-err-tip"><b>输入的用户名或密码错误</b></p>
+                    <p class="small pull-right">没有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-reg">注册</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="js-login-submit">确认</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--注册框-->
+<div class="modal fade" id="js-reg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form id="js-reg-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="下次用邮箱登录" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="密码，六位以上" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" name="re_password" class="form-control" placeholder="请再输入一次密码" required>
+                        </div>
+                    </div>
+                    <p class="small pull-left" id="reg-err" hidden style="color: red"></p>
+                    <p class="small pull-right">已有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-login">登录</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-reg-submit">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div ng-controller="dataDetail">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover" style="max-width: 1000px">
+                <tr>
+                    <th>数据路径:&nbsp;&nbsp; {{common.path}}</th>
+                    <th>频道:&nbsp;&nbsp; {{common.language}}</th>
+                    <th>通道:&nbsp;&nbsp; {{common.channel}}</th>
+                </tr>
+                <tr>
+                    <th>制作时间:&nbsp;&nbsp; {{common.createtime}}</th>
+                    <th>制作人:&nbsp;&nbsp; {{common.opuser}}</th>
+                    <th>数据大小:&nbsp;&nbsp; {{common.datasize / 1024 / 1024 | number:2}}&nbsp;MB</th>
+                </tr>
+                <tr>
+                    <th>发布时间:&nbsp;&nbsp; {{common.publishtime}}</th>
+                    <th>发布人:&nbsp;&nbsp; {{common.pubuser}}</th>
+                    <th>数据版本:&nbsp;&nbsp; {{common.lastver}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="col-md-offset-4">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active" id="filelistLi"><a href="javascript:void(0)" ng-click="changeDetail(0)"><b>文件列表</b></a></li>
+                    <li role="presentation" id="changelistLi"><a href="javascript:void(0)" ng-click="changeDetail(1)"><b>修改点</b></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div id="filelist">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>文件名</th>
+                        <th>文件版本</th>
+                        <th>SVN版本</th>
+                        <th style="text-align: right">文件大小</th>
+                        <th>MD5</th>
+                        <th>数字签名</th>
+                    </tr>
+                    <tr ng-repeat="x in itemlist">
+                        <th>{{x.localfilepath}}{{x.filename}}</th>
+                        <th>{{x.fileversion}}</th>
+                        <th>{{x.svnversion}}</th>
+                        <th style="text-align: right" ng-if="x.filesize >= 1024 * 1024">{{x.filesize / 1024 / 1024 | number:2}}&nbsp;MB</th>
+                        <th style="text-align: right" ng-if="x.filesize < 1024 * 1024">{{x.filesize / 1024 | number:2}}&nbsp;KB</th>
+                        <th>{{x.filemd5}}</th>
+                        <th ng-if="x.digitalsignature != 'need\nneed'">{{x.digitalsignature}}</th>
+                        <th ng-if="x.digitalsignature == 'need\nneed'"></th>
+                    </tr>
+                </table>
+            </div>
+            <div id="changelist" hidden>
+                <p>{{common.changelist}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/dataDetail.js"></script>
+</body>
+</html>

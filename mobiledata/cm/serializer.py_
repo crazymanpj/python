@@ -1,0 +1,18 @@
+from models import SideBar, SideBarGroup, PublishRecord
+from rest_framework import serializers
+
+class SideBarSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = SideBar
+		fields = ('id', 'group', 'name', 'url', 'blank')
+
+class SideBarGroupSerializer(serializers.HyperlinkedModelSerializer):
+	sidebars = serializers.StringRelatedField(many=False)
+	class Meta:
+		model = SideBarGroup
+		fields = ('id', 'group', 'blank', 'sidebars')
+
+class PublishRecordSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = PublishRecord
+		fields = ('id', 'publishtime', 'filetype', 'channel', 'details', 'user', 'filepath')

@@ -1,0 +1,5 @@
+﻿{dgdau.date} 精灵大盘数据如下：
+1、精灵总活跃 {dgdau.dau}，周比 {dgdau.week_d} ({dgdau.rate_d}%)
+① 主动安装活跃：{dgdau.dau_zhudong_hwt}，周比 {dgdau.week_d_zd} ({dgdau.rate_d_zd}%)
+﻿	主动安装渠道  	 {dgdau.dau_zd}
+﻿	腾讯视频渠道  	 {dgdau.dau_tx}

@@ -1,0 +1,1513 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.cleanmaster.mguard_cn" platformBuildVersionCode="23" platformBuildVersionName="6.0-2166767">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+    <uses-permission android:name="com.android.launcher3.permission.INSTALL_SHORTCUT"/>
+    <permission android:name="com.cleanmaster.mguard_cn.permission.MIPUSH_RECEIVE" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.cleanmaster.mguard_cn.permission.MIPUSH_RECEIVE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <application android:allowBackup="false" android:allowClearUserData="false" android:debuggable="false" android:icon="@drawable/main_icon" android:label="@string/pu" android:name="com.keniu.security.MainEntry" android:supportsRtl="true" android:theme="@android:style/Theme.NoTitleBar" android:uiOptions="splitActionBarWhenNarrow">
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.keniu.security.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/fl" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="miui.intent.category.SYSAPP_RECOMMEND"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.keniu.security.main.SplashDefActivity" android:screenOrientation="portrait" android:theme="@style/fl" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.keniu.security.main.SplashPluginLoadingActivity" android:screenOrientation="portrait" android:theme="@style/fl" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.security.ui.PrivacyCleanActivity"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.security.keepactive.TransparentActivity" android:process=":service" android:theme="@style/i_"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.ui.app.activity.TransparentActivityInMainProcess" android:theme="@style/i_"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.security.keepactive.TransparentActivity" android:process=":service" android:theme="@style/i_"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.security.scan.result.SecurityMainActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.security.scan.ui.sdcard.SecuritySdScanActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.security.appinfo.SecurityAppInfoActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.security.scan.ui.wifiscan.SecurityWifiScanActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.security.scan.ui.SafeAppsListActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.privacy.ui.BrowserItemDetailActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.photomanager.ui.PhotoGridActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.photomanager.ui.PhotoGridPathActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.photomanager.ui.PhotoDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.JunkManagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <intent-filter android:label="@string/pu">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="junk" android:pathPrefix="/main" android:scheme="cm-appindexing"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.JunkSimilarPicActivity" android:windowSoftInputMode="adjustPan">
+            <intent-filter android:label="@string/pu">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="similarpic" android:pathPrefix="/main" android:scheme="cm-appindexing"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.PhotoManageMainActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.base.util.system.GuideOpenSystemPermission" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.JunkPicRecycleActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.photocompress.ui.PhotoCompressActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.ui.app.activity.AppManagerActivity" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.ui.app.market.activity.MarketAppWebActivity" android:screenOrientation="portrait" android:theme="@style/f6" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleTop" android:name="com.cleanmaster.weather.sdk.news.NewsWebActivity" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.cm.gags.VideoDetailActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.cmcm.newsviewsdk.gags.VideoFullScreenActivity" android:screenOrientation="sensorLandscape" android:taskAffinity="com.android.floatwindow" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.ImgDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.ui.app.activity.AppDownloadManagerActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.AppAPKActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.NewAppUninstallActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.AppSpaceManagerActivity" android:theme="@style/i8" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.NewAppUninstallSimpleActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.security.scan.MonitorUninstallActivity" android:theme="@style/hy" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.conflit.check.ConfCheckerActivity" android:theme="@style/hy" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.keniu.security.main.FirstAccessNetDialogActivity" android:theme="@style/hy" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleInstance" android:name="com.cleanmaster.security.scan.MonitorInstallActivity" android:theme="@style/ex" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.security.scan.MonitorInstallRemainActivity" android:theme="@style/hy" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.boost.main.ProcessManagerActivity" android:theme="@style/i8" android:uiOptions="splitActionBarWhenNarrow">
+            <intent-filter android:label="@string/pu">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="boost" android:pathPrefix="/main" android:scheme="cm-appindexing"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:launchMode="singleTask" android:name="com.cleanmaster.ui.game.ui.GameManagerActivity" android:theme="@style/i8" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden|navigation" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameAddActivity" android:theme="@style/i8" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden|navigation" android:launchMode="singleTask" android:name="com.cleanmaster.boost.process.ui.ProcessAddMoreActivity" android:theme="@style/i8" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:icon="@drawable/v6" android:label="@string/xx" android:launchMode="singleInstance" android:name="com.cleanmaster.processcleaner.ProcessCleanerActivity" android:theme="@style/ic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.SettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.MessageSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.NotificationSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.NotificationStyleSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.SetLanguageActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.FloatSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.LowBatteryModeSettingActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.SmartPowerSaveSetting"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.WeeklyPowerSummarizeActivity"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.settings.ui.FloatWeatherSettingsActivity" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cleanmaster.settings.ui.LocationAllowActivity" android:theme="@style/hy" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.TrustAppListActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.JunkWhiteListActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.CmAppRestoreActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.AppRestoreActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleInstance" android:name="com.cleanmaster.settings.ui.UnRootAlertDialogActivity" android:theme="@style/hy"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.LocalWebActivity">
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.LAUNCH_LOCALWEB"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.CnAboutActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.WeatherSettingActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.AppMoveActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.AppSystemMoveActivity"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.base.crash.CrashFeedbackActivity" android:process=":crash.feedback" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.applink.RecommendCMXActivity" android:process=":crash.feedback" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.feedback.FeedBackActivity" android:taskAffinity="com.cleanmaster.feedback" android:theme="@style/fl" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.base.activity.DimensionalActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.process.ui.ProcessManagerSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.settings.WidgetGuideActivity"/>
+        <activity android:configChanges="keyboard" android:name="com.cleanmaster.settings.ui.NewsShortcutGuideActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.internalapp.ad.ui.BatteryDoctorActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.UninstallMultiAppActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.market.activity.MarketCollectionActivity"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:name="com.cleanmaster.internalapp.ad.ui.AppManagerSmsHoleActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.internalapp.ad.ui.RecommendCMLockerActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.internalapp.ad.ui.RecommendCMBActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.process.ui.ProcessWhiteListActivity" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:exported="true" android:name="com.cooperate.UISwitchActivity" android:theme="@style/ic"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.ui.app.DialogActivity" android:theme="@style/ht"/>
+        <activity android:configChanges="keyboardHidden|navigation" android:excludeFromRecents="true" android:exported="true" android:hardwareAccelerated="false" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.GameBoxActivity" android:theme="@style/fe">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.LAUNCH_GAMEBOX"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.TransActivity" android:theme="@style/hz"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameboxForNotificationActivity" android:noHistory="true" android:theme="@style/fd"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="false" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameProblemActivity" android:theme="@style/fc"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.cleanmaster.ui.game.ui.GameBoxDialogActivity" android:noHistory="true" android:theme="@style/ez">
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.LAUNCH_GAMEBOX_RECOMMEND_DIALOG"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameBoxGuideDialogActivity" android:noHistory="true" android:theme="@style/ez"/>
+        <activity android:configChanges="keyboardHidden|navigation|screenSize" android:launchMode="singleTask" android:name="com.cleanmaster.boost.cpu.ui.CpuNormalActivity" android:theme="@style/i8" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.game.ui.GameBoxCreateActivity"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.security.scan.monitor.InstallMonitorDialog" android:theme="@style/ff"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation" android:exported="false" android:launchMode="singleInstance" android:name="com.cleanmaster.notification.NotificationDialogActivity" android:noHistory="true" android:theme="@style/ey" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|navigation" android:exported="false" android:launchMode="singleInstance" android:name="com.cleanmaster.notification.NotificationFunctionReplaceActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/fr" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="true" android:name="com.gau.go.launcherex.gowidget.cleanmaster.GoWidgetActivity">
+            <intent-filter>
+                <action android:name="com.gau.go.launcherex.gowidget"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:name="com.cleanmaster.mguard_cn.wxapi.WXEntryActivity" android:theme="@style/ez" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.screensave.ui.ScreenSaverSettingActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.junk.ui.activity.JunkSDCardVideoActivity"/>
+        <activity android:name="com.cleanmaster.screensave.ui.NotificationGuideBlankActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.ui.app.activity.OlympicActivity" android:screenOrientation="portrait" android:theme="@style/f6" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.cleanmaster.screensave.ScreenSaverNotificationReceiver">
+            <intent-filter>
+                <action android:name="screen_saver_state_changed"/>
+                <action android:name="screen_saver_show_notification"/>
+                <action android:name="screen_saver_cloud_notification"/>
+                <action android:name="screen_saver_ui_guide"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.cleanmaster.screensave.WeatherNotificationReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cmcm.weather.sdk.notification"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.ijinshan.cleaner.receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.cleanmaster.service.ALARM_SHOW_FREQUENCE_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cleanmaster.notification.MonitorBroadcastReceiver" android:process=":service"/>
+        <receiver android:exported="false" android:name="com.ijinshan.cleaner.receiver.MainProcessReceiver">
+            <intent-filter>
+                <action android:name="com.ijinshan.cleaner.receiver.MainProcessReceiver.Action1"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.cleaner.receiver.UninstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cleanmaster.receiver.ACTION_REMOVED_SYSTEM_APP"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.boost.autostarts.data.ComponentMonitorReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.security.scan.InstallMonitorReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cleanmaster.security.scan.InstallMonitorReceiver"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.cleaner.receiver.ScreenUnlockReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.cleaner.receiver.ConnectivityChangeBroadcastReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cm.root.RootKeeperCrashReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.ijinshan.rootkeeper.action.RootCrash"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.ijinshan.cleaner.receiver.StorageStatusReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.ijinshan.cleaner.receiver.MainProcessReceiverForPush">
+            <intent-filter>
+                <action android:name="com.ijinshan.cleaner.receiver.MainProcessReceiverForPush.ACTION"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.cleanmaster.service.PermanentService" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.service.PermanentService.action"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cm.perm.PermService" android:process=":perms"/>
+        <service android:name="com.cleanmaster.service.FloatService" android:process=":worker"/>
+        <service android:name="com.atinst.AutoInstallIntentService" android:process=":service"/>
+        <service android:name="com.cleanmaster.base.crash.CrashReportService" android:process=":crash.feedback">
+            <intent-filter>
+                <action android:name="com.cleanmaster.crash.report"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cleanmaster.dmc.DmcDataReportService" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.dmc.report"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cleanmaster.service.BgScanService" android:process=":bg.scan"/>
+        <service android:exported="false" android:name="com.cleanmaster.service.LocalService">
+            <intent-filter>
+                <action android:name="com.cleanmaster.service.ACTION_CMBOX_SETUP"/>
+                <action android:name="com.cleanmaster.service.ACTION_MOVE"/>
+                <action android:name="com.cleanmaster.service.ACTION_CMBOX_CLEANUP"/>
+                <action android:name="com.cleanmaster.service.ACTION_RESTORE"/>
+                <action android:name="com.cleanmaster.service.ACTION_GET_APPLICATION_INFO"/>
+                <action android:name="com.cleanmaster.service.ACTION_GET_SYSTEM_MOVABLE_APPS"/>
+                <action android:name="com.cleanmaster.service.ACTION_ACT"/>
+                <action android:name="com.cleanmaster.service.ACTION_PRELOAD_BUSINESS_AD_SCREEN_SAVER"/>
+                <action android:name="com.cleanmaster.service.ACTION_PRELOAD_AD_RESULT_PAGE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cleanmaster.pc.PcConnectService">
+            <intent-filter>
+                <action android:name="com.cleanmaster.pc.PcConnectServicex"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cleanmaster.appwidget.WidgetService" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.appwidget.ACTION_FASTCLEAN"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_REPORT_ACTIVE"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_REMOVE_GO_WIDGET"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_RESET_FAST_CLEAN"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_ADD_GO_WIDGET"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cleanmaster.cloudconfig.CloudCfgIntentService" android:process=":service"/>
+        <service android:exported="false" android:name="com.cleanmaster.security.scan.sdcard.SdcardScanService" android:process=":sdscanservice">
+            <intent-filter>
+                <action android:name="com.cleanmaseter.security.sdcard.ACTION_NEW_SECURITY_SCAN"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cleanmaster.api.CMAPIService" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.api.ACCESS"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cleanmaster.ui.app.task.TopAppsInterface" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.api.GET_TOP_APPS"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cleanmaster.envcollect.StorageService" android:process=":storage"/>
+        <receiver android:exported="true" android:name="com.ijinshan.cleaner.receiver.ToucherAppBroadcastReceiver">
+            <intent-filter>
+                <action android:name="action_toucher_click_advanced_clean"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.boost.lowbatterymode.NotifyAchiveReceiver"/>
+        <receiver android:label="@string/e1r" android:name="com.cleanmaster.appwidget.MainAppWidgetWhiteProvider" android:process=":service">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/e"/>
+        </receiver>
+        <receiver android:label="@string/e1q" android:name="com.cleanmaster.appwidget.MainAppWidgetBlackProvider" android:process=":service">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/d"/>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cleanmaster.appwidget.WidgetBroadcastReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.appwidget.APPWIDGET_DEFAULT_UPDATE"/>
+                <action android:name="com.cleanmaster.appwidget.APPWIDGET_FRESH_UPDATE"/>
+                <action android:name="com.cleanmaster.appwidget.APPWIDGET_CLEAN_PROCESS_UPDATE"/>
+                <action android:name="com.cleanmaster.appwidget.APPWIDGET_START_CLEAN_PROCESS_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cleanmaster.push.PushNotificationReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.push.ACTION_PUSH_URL_JUMP"/>
+                <action android:name="com.cleanmaster.push.ACTION_PUSH_WEBVIEW_JUMP"/>
+                <action android:name="com.cleanmaster.push.ACTION_PUSH_NEWS_DETAIL_JUMP"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.filemanager.ui.FileManagerTabActivity" android:theme="@android:style/Theme.Light.NoTitleBar" android:uiOptions="splitActionBarWhenNarrow"/>
+        <provider android:authorities="com.cleanmaster.SyncIPCPrvidor_cn" android:exported="false" android:name="com.cleanmaster.synipc.SyncIPCPrvidor_cn" android:process=":service"/>
+        <provider android:authorities="com.cleanmaster.provider.database_cn" android:exported="false" android:name="com.cleanmaster.provider.DatebaseProvider_cn" android:process=":service"/>
+        <provider android:authorities="com.cleanmaster.provider.config_cn" android:exported="false" android:name="com.cleanmaster.provider.ConfigProvider_cn" android:process=":service"/>
+        <provider android:authorities="cmdownloads_cn" android:exported="false" android:name="com.cleanmaster.ui.app.provider.download.DownloadProvider_cn"/>
+        <provider android:authorities="com.download.op.trance.config_cn" android:exported="false" android:name="com.cleanmaster.ui.app.provider.download.DownloadConfigProvider_cn"/>
+        <service android:enabled="true" android:name="com.xiaomi.push.service.XMPushService" android:process=":service"/>
+        <service android:enabled="true" android:exported="false" android:name="com.xiaomi.push.service.XMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":service"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler" android:process=":service"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService" android:process=":service"/>
+        <receiver android:exported="true" android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.xiaomi.push.service.receivers.PingReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.keniu.security.update.push.mi.XiaomiPushMessageReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.cleanmaster.ui.app.provider.download.DownloadService"/>
+        <receiver android:exported="false" android:name="com.cleanmaster.ui.app.provider.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.cm_DOWNLOAD_LIST"/>
+                <action android:name="android.intent.action.cm_DOWNLOAD_OPEN"/>
+                <action android:name="android.intent.action.cm_DOWNLOAD_HIDE"/>
+                <action android:name="android.intent.action.cm_DOWNLOAD_RETRY"/>
+                <action android:name="android.intent.action.cm_DOWNLOAD_WAKEUP"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="android.support.UI_OPTIONS" android:value="splitActionBarWhenNarrow"/>
+        <meta-data android:name="android.app.default_searchable" android:value=".SearchActivity"/>
+        <meta-data android:name="com.cleanmaster.sdk.cmloginsdk.ApplicationId" android:value="@string/ow"/>
+        <meta-data android:name="com.cleanmaster.sdk.cmloginsdk.ApplicationSalt" android:value="@string/q1"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.settings.ui.HonorHallActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ledlight.FlashLightActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.cleanmaster.ui.app.market.activity.VideoWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.activity.NoAppMoveActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.keniu.security.commonfunction.FBShareWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.floatwindow.fifa.panel.FloatNewsWebViewActivity" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.space.newitem.ApkFileActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.ui.space.SpaceManagerActivity" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.junk.ui.activity.FileManagerActivity" android:screenOrientation="portrait" android:theme="@style/f6">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.junk.ui.activity.FileManagerWidgetGuideActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.junk.ui.activity.FileManagerAppFileActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.fmspace.FMSpaceManagerActivity" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.fmspace.item.FMSpaceDocsActivity"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.space.AppCacheActivity"/>
+        <activity android:configChanges="keyboardHidden|navigation" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.app.activity.AppCategoryShortcutActivity" android:theme="@style/ez">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameWebActivity" android:process=":gamebox.web" android:theme="@style/f6" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.game.ui.GameWebActivityTransparent" android:process=":gamebox.web" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.autostarts.uistatic.AutostartManagerActivity" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTask" android:name="com.cleanmaster.boost.abnormal.abnormalnotify.AbnormalNotifyActivity" android:uiOptions="splitActionBarWhenNarrow"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.recommendapps.RecommendProcessClean" android:theme="@style/ez"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.phototrims.newui.PhotoTrimCloudToQuickPicActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/pu" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/b2k"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="Clean Master"/>
+        <activity android:name="com.cleanmaster.junk.ui.activity.JunkSimilarPicJumpActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.junk.ui.activity.JunkSimilarDialogActivity" android:screenOrientation="portrait" android:theme="@style/ez"/>
+        <receiver android:enabled="true" android:name="com.cleanmaster.security.scan.InstallNotificationDeleteReceiver" android:process=":service"/>
+        <service android:exported="false" android:name="com.qq.e.comm.DownloadService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.qq.e.ads.ADActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:icon="@drawable/a0k" android:label="@string/xx" android:launchMode="singleInstance" android:name="com.cleanmaster.boost.onetap.OneTapCleanerActivity" android:theme="@style/ic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|screenSize" android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.JunkDownloadManagerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:name="com.cleanmaster.internalapp.ad.ContactBackupRecommendActivity"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:name="com.cleanmaster.internalapp.ad.WifiProtectionActivity"/>
+        <receiver android:name="com.cleanmaster.push.JunkNotificationReceiver" android:process=":service"/>
+        <receiver android:exported="false" android:name="com.cleanmaster.watcher.UsedMemoryNotificationReceiver" android:process=":service"/>
+        <receiver android:exported="true" android:name="com.cleanmaster.ui.game.sdk_evasion.gsdk_cmd.CmdReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.sdk.cmd"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.ui.game.sdk_evasion.InstallMonitorReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.cleanmaster.service.PhotoCompressService" android:process=":sdscanservice"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.security.scan.BoostPageActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.security.appinfo.SecurityFeedback" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmcm.knob.floatwindow.guide.KNoticationAccessGuideActivity" android:screenOrientation="portrait" android:theme="@style/i2"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.knob.floatwindow.guide.MIUIGuideActivity" android:theme="@style/i1"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.knob.floatwindow.guide.MeizuSpecialSettingAssistActivity" android:screenOrientation="portrait" android:taskAffinity="com.meizu.safe" android:theme="@style/i0"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.knob.floatwindow.guide.NexusSpecialSettingAssistActivity" android:screenOrientation="portrait" android:taskAffinity="com.android.settings" android:theme="@style/i0"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmcm.knob.setting.NegativeScreenSettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmcm.knob.floatwindow.SideSlipActivity" android:screenOrientation="portrait" android:taskAffinity="com.android.floatwindow" android:theme="@style/g0">
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.sideslip"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.knob.floatwindow.shortcut.ShortcutJumpActivity" android:process=":desk" android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.news"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cleanmaster.applink.DeepLinkActivity" android:theme="@style/fl">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="cleanmasterlink"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.internalapp.ad.ui.FlowDataMonitorActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.cleanmaster.screensave.ScreenADServiceReceiver" android:process=":service">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.giftbox.SplashADReceiver" android:process=":service">
+            <intent-filter android:priority="1000">
+                <action android:name="com.cleanmaster.action.preloadsplash"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/pu" android:name="com.cleanmaster.ui.space.WeiXinSpecialActivity"/>
+        <activity android:name="com.cleanmaster.ui.space.WeixinMediaActivity"/>
+        <activity android:label="@string/pu" android:name="com.cleanmaster.ui.space.WeiXinSpecialActivityNew"/>
+        <activity android:label="@string/pu" android:name="com.cleanmaster.ui.space.QQSpecialActivity"/>
+        <activity android:label="@string/pu" android:name="com.cleanmaster.ui.app.activity.DeskActivity"/>
+        <meta-data android:name="BaiduMobAd_APP_ID" android:value="cfe65a48"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.baidu.mobad.feeds.BaiduActivity"/>
+        <service android:exported="false" android:name="com.cleanmaster.boost.acc.service.AccService" android:process=":service"/>
+        <service android:exported="false" android:name="com.cleanmaster.boost.acc.ui.SavePowerService"/>
+        <service android:exported="false" android:name="com.cleanmaster.junk.engine.JunkAccService" android:process=":service"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:hardwareAccelerated="true" android:launchMode="singleInstance" android:name="com.cmcm.swiper.EmptyActivity" android:process=":worker" android:theme="@style/aa"/>
+        <service android:label="@string/a2r" android:name="com.cleanmaster.boost.acc.service.AccessibilityKillService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:process=":service">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/b"/>
+        </service>
+        <receiver android:name="com.cleanmaster.service.acc4install.AutoInstallAccListener$AutoInstallReceviver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.service.acc4install.message"/>
+            </intent-filter>
+        </receiver>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:icon="@drawable/yx" android:label="@string/a2s" android:launchMode="singleInstance" android:name="com.cleanmaster.boost.acc.ui.AppStandbyShortcut" android:screenOrientation="portrait" android:theme="@style/ic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.boost.acc.ui.OnetapStandbyActivity" android:screenOrientation="portrait" android:theme="@style/ic"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.AppStandbyMainActivity" android:screenOrientation="portrait">
+            <intent-filter android:label="@string/pu">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="appstandby" android:pathPrefix="/main" android:scheme="cm-appindexing"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.AppStandbyMainWidgetActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.cleanmaster.boost.acc.ui.StorageGuideActivity"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTop" android:name="com.cleanmaster.boost.acc.scene.PowerLandingPageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleInstance" android:name="com.cleanmaster.boost.acc.scene.PowerSceneDialogActivity" android:theme="@style/ic"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleTask" android:name="com.cleanmaster.login.bindphone.activity.PersonalInformationActivity"/>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.cleanmaster.weather.sdk.WeatherSDKActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/if"/>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.cleanmaster.weather.sdk.news.WeatherActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.cleanmaster.ui.space.scan.NormalSpecialActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.junk.ui.activity.JunkSysDataCacheActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cleanmaster.ui.app.provider.download.install.InstallApkActivity" android:screenOrientation="portrait" android:taskAffinity="cm.install" android:theme="@style/i_"/>
+        <receiver android:name="com.cleanmaster.screensave.ScreenSaveUtils$MyBoostReceiver">
+            <intent-filter>
+                <action android:name="com.cmcm.screensaver.update_data_battery"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.screensave.ScreenSaveUtils$ButtonBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.cleanmaster.screensave.intent.action.ButtonClick"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cleanmaster.screensave.ScreenSaveUtils$DeleteBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.cleanmaster.screensave.intent.action.DeleteNotify"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.keniu.security.basecomponent.receiver.outer.ORDispatcherStatic"/>
+        <receiver android:name="com.keniu.security.basecomponent.receiver.outer.ORDispatcherStaticService" android:process=":service"/>
+        <service android:name="com.cleanmaster.screensave.notification.NotificationListener" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:process=":worker">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.cleanmaster.screensave.notification.LowNotificationSwitchService" android:process=":worker"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn_flowmonitor_cn" android:enabled="true" android:exported="false" android:name="com.cmcm.datamaster.sdk.calibrate.db.FlowProvider_cn"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn_traffic" android:enabled="true" android:exported="false" android:name="com.cmcm.datamaster.sdk.export.DataMasterProvider" android:process=":service"/>
+        <service android:enabled="true" android:exported="false" android:name="com.cmcm.datamaster.sdk.export.DataMasterService" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cleanmaster.notificationclean.NotificationBlackListActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.cleanmaster.ui.msgdistrub.NotificationDisturbSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cleanmaster.ui.msgdistrub.NotificationGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.boost.acc.ui.PowerSavingAlertSwitchActivity" android:screenOrientation="portrait"/>
+        <receiver android:exported="false" android:name="com.ijinshan.cleaner.receiver.WallPagerChangedReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.WALLPAPER_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:name="com.cleanmaster.ui.app.redpacket.RedPacketOpenActivity" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.redpacket.RedPacketSettingActivity" android:theme="@style/f6"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.app.redpacket.RedPacketPromoteActivity" android:screenOrientation="portrait" android:theme="@style/ez"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.app.redpacket.RedPacketTipActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.ui.app.redpacket.RedpacketLandingPageActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <service android:name="com.cleanmaster.ui.app.redpacket.RedPacketService" android:process=":worker"/>
+        <service android:name="com.cleanmaster.notification.NotificationCmsPushService" android:process=":worker"/>
+        <activity android:name="com.jdwx.sdk.JDAdBrowser" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.jingdong.kepler.sdk.lib.jump.KeplerHandlerBackActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.cmcm.knob.floatwindow.SlideSlipService" android:process=":worker"/>
+        <service android:exported="false" android:name="com.cmcm.knob.floatwindow.CloudConfigCheckService" android:process=":service"/>
+        <provider android:authorities="com.plug.provider.plug" android:name="com.plug.provider.PlugConfigProvider" android:process=":service"/>
+        <provider android:authorities="@string/qu" android:exported="true" android:name="com.cleanmaster.applock.provider.AppLockActiveProviderProxy" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.applocklib.intent.provider.APPLOCK_ACTIVE"/>
+            </intent-filter>
+        </provider>
+        <receiver android:exported="true" android:label="@string/qu" android:name="com.cleanmaster.applock.receiver.AppLockActiveReceiverProxy" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.applocklib.intent.receiver.APPLOCK_ACTIVE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:name="com.cleanmaster.applock.receiver.AppLockNotificationReceiverProxy">
+            <intent-filter>
+                <action android:name="applock_show_notification"/>
+                <action android:name="applock_alarm_notification"/>
+            </intent-filter>
+        </receiver>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:name="com.cleanmaster.internalapp.ad.ui.CMSInstallDetailActivity"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.boost.onetap.ShortcutMaskGuideActivity" android:theme="@style/hw"/>
+        <activity android:name="com.cleanmaster.ui.app.activity.AppCleanActivity"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.space.wechatspecialguide.WechatSpecialGuideActivity" android:process=":service" android:screenOrientation="portrait" android:theme="@style/ig"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.space.qqspecialguide.QQSpecialGuideActivity" android:process=":service" android:screenOrientation="portrait" android:theme="@style/ig"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.ui.notificationtools.ui.RouteActivity" android:theme="@style/fl"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.notificationclean.RcmdAvoidBotherNotificationActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/fx"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.screensave.NewsDetailGuideActivity" android:theme="@style/i_"/>
+        <service android:exported="false" android:name="com.cmcm.knob.notification.MiPushNewsService" android:process=":service"/>
+        <activity android:name="com.cleanmaster.anum.ui.task.MyTaskActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cleanmaster.anum.ui.login.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.cleanmaster.anum.ui.login.UserCenterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:name="com.cleanmaster.anum.ui.login.UserInfoFixActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.cleanmaster.anum.ui.login.DepositActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cleanmaster.anum.ui.exchange.PhoneFlowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.cleanmaster.anum.ui.exchange.PhoneFlowExchangeRecordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:exported="true" android:launchMode="singleTop" android:name="com.cmcm.datamaster.sdk.base.ui.activity.MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.MonthActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.DayActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.DayDataActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.cmcm.datamaster.sdk.base.ui.activity.MonthAppDataActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.cmcm.datamaster.sdk.base.ui.activity.DayAppDataActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="com.cmcm.datamaster.sdk.base.ui.activity.FireWallActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.AllDataActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.SetupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.cmcm.datamaster.sdk.base.ui.activity.SpeedTestActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.cmcm.datamaster.sdk.base.ui.activity.BackgroundDataActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <service android:name="com.cmcm.datamaster.sdk.SpeedTestService"/>
+        <service android:name="com.cmcm.datamaster.sdk.export.accessibility.MIUIAccessibilityService"/>
+        <activity android:name="com.cmcm.datamaster.sdk.calibrate.ui.SIMInfoSettingActivity" android:screenOrientation="portrait"/>
+        <receiver android:enabled="true" android:name="com.cmcm.datamaster.sdk.export.DataMasterReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.RSSI_CHANGED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.ijinshan.notificationlib.notificationhelper.ui.SocialMaskGuideActivity" android:theme="@style/hv"/>
+        <activity android:configChanges="keyboardHidden" android:launchMode="singleInstance" android:name="com.ijinshan.notificationlib.notificationhelper.ui.NotifyGuideTransitActivity" android:process=":worker" android:theme="@style/hv"/>
+        <activity android:exported="false" android:launchMode="standard" android:name="org.acdd.android.compat.ActivityProxy"/>
+        <meta-data android:name="hostCode" android:value="10100036"/>
+        <service android:exported="false" android:name="com.ijinshan.pluginslive.plugin.restart.RestartService" android:process=":reboot"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.ijinshan.pluginslive.plugin.restart.ReliveBackgroundReceiver">
+            <intent-filter>
+                <action android:name="com.cleanmaster.mguard_cn.start_main_process"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.ijinshan.pluginslive.plugin.upgrade.PluginLiveService" android:process=":service"/>
+        <receiver android:name="com.ijinshan.pluginslive.plugin.reload.MainProcReloadReceiver">
+            <intent-filter>
+                <action android:name="com.cleanmaster.mguard_cn.cleanmaster_install_plugin"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.pluginslive.plugin.reload.ServiceProcReloadReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.cleanmaster.mguard_cn.cleanmaster_install_plugin"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.pluginslive.plugin.reload.WorkerProcReloadReceiver" android:process=":worker">
+            <intent-filter>
+                <action android:name="com.cleanmaster.mguard_cn.cleanmaster_install_plugin"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.pluginslive.plugin.util.UpgradeUtil$PluginUpgradeReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.ijinshan.cleanmaster_plugins_check"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cm.plugin.screensaver.ad.ScreenADReceiver" android:process=":worker">
+            <intent-filter android:priority="1000">
+                <action android:name="com.cleanmaster.action.screenon"/>
+                <action android:name="com.cleanmaster.action.preloadscreenad"/>
+                <action android:name="com.cleanmaster.screensave.action.screensave.state"/>
+                <action android:name="com.cleanmaster.screensave.action.powerconnected"/>
+                <action android:name="com.cleanmaster.screensave.action.powerdisconnected"/>
+                <action android:name="com.cleanmaster.screensave.action.connectivitychange"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleInstance" android:name="com.ijinshan.screensavernew.ScreenSaver2Activity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/kw"/>
+        <receiver android:exported="false" android:name="com.ijinshan.screensavershared.ScreenSaverNullReceiver">
+            <intent-filter>
+                <action android:name="com.ijinshan.screensaveshared.StartUIProcess"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.ijinshan.screensavershared.mutual.CharingSaverStateReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="com.charingsaver.state.action"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.cm.plugin.screensaver.main.ScreenSaverService" android:process=":worker"/>
+        <receiver android:exported="false" android:name="com.lock.cover.WallpaperChangeReceiver" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.WALLPAPER_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.lock.common.DialogActivity" android:process=":worker" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleTask" android:name="com.ijinshan.screensavernew.ui.NotificationGuideActivity" android:process=":worker" android:screenOrientation="portrait" android:taskAffinity="com.cleanmaster.sreensaver.guide" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.ijinshan.screensavernew.ScreenSaverTransitActivity" android:process=":worker" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.swipe.com.cleanmaster.configmanager.SwipeGuideActivity" android:screenOrientation="portrait" android:theme="@style/g3"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cm.plugin.swipe.com.cleanmaster.settings.ui.SwipeThemeGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:name="com.cm.plugin.swipe.com.cleanmaster.settings.ui.FloatSwipeSettingsActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="swipe_setting"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.quickrcmd.core.NullActivity" android:taskAffinity="com.cleanmaster.qucikrcm.nullact" android:theme="@android:style/Theme.Translucent"/>
+        <service android:name="com.cmcm.swiper.SwiperService" android:process=":worker">
+            <intent-filter>
+                <action android:name="com.cleanmaster.appwidget.ACTION_FASTCLEAN"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_REPORT_ACTIVE"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_REMOVE_GO_WIDGET"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_RESET_FAST_CLEAN"/>
+                <action android:name="com.cleanmaster.appwidget.ACTION_ADD_GO_WIDGET"/>
+            </intent-filter>
+        </service>
+        <activity android:launchMode="singleTask" android:name="com.cleanmaster.ui.swipe.SwipeGuideActivity" android:screenOrientation="portrait" android:theme="@style/g3"/>
+        <activity android:launchMode="singleInstance" android:name="com.cleanmaster.ui.swipe.SwipeFloatGuideTipActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.ui.capture.ScreenCaptureImageActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.ui.capture.CaptureCommonActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:launchMode="singleInstance" android:name="com.cm.plugin.swipe.com.cleanmaster.configmanager.SwipeSearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.ksmobile.business.sdk.search.webview.SSLDialog" android:screenOrientation="userPortrait" android:theme="@style/hx" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.ksmobile.business.sdk.search.views.search_options.ChoiceSearchEngineActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:name="com.ksmobile.business.sdk.search.webview.SearchWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <provider android:authorities="com.ijinshan.krcmd.configforcm" android:exported="false" android:name="com.cm.coordinator.krcmd.RcmdConfigProviderProxy" android:process=":service"/>
+        <activity android:configChanges="keyboardHidden" android:hardwareAccelerated="false" android:launchMode="singleTop" android:name="com.cm.plugin.splash.ui.SplashingActivity" android:screenOrientation="portrait" android:theme="@style/fl" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn" android:enabled="true" android:exported="true" android:name="com.cm.coordinator.onews.ONewsProviderProxy"/>
+        <service android:enabled="true" android:exported="false" android:name="com.cleanmaster.applocklib.core.service.AppLockService" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.applocklib.ui.activity.AppLockSafeQuestionActivity" android:screenOrientation="portrait" android:taskAffinity=".applocklib.oauth" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.applocklib.ui.activity.AppLockPasswordActivity" android:screenOrientation="portrait" android:theme="@style/d4" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.cleanmaster.applocklib.ui.main.AppLockMainActivity" android:screenOrientation="portrait" android:theme="@style/cu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.cleanmaster.applocklib.ui.activity.AppLockRecommendedAppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.cleanmaster.applocklib.ui.main.AppLockActivity" android:screenOrientation="portrait" android:theme="@style/d8" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.cleanmaster.applocklib.ui.activity.AppLockSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.cleanmaster.applocklib.ui.activity.AppLockLockSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.applocklib.ui.activity.AppLockOAuthActivity" android:screenOrientation="portrait" android:theme="@style/d4"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.intruder.ui.ShowPhotoTimeLineActivity" android:screenOrientation="portrait" android:taskAffinity=".applocklib.intruder" android:theme="@style/d4" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.cleanmaster.intruder.ui.AppLockIntruderSelfieSettingActivity" android:screenOrientation="portrait" android:theme="@style/d8" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:launchMode="singleInstance" android:name="com.cleanmaster.intruder.ui.IntruderSelfiePhotoGridInstanceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.cleanmaster.intruder.ui.IntruderSelfiePhotoGridActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.cleanmaster.intruder.ui.IntruderSelfiePhotoPagerActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTop" android:name="com.cleanmaster.intruder.ui.IntruderSelfieExperienceActivity" android:screenOrientation="portrait" android:taskAffinity=".applocklib.intruder" android:theme="@style/d4" android:windowSoftInputMode="adjustResize"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.utils.TransparentActivity" android:process=":service" android:theme="@style/i_"/>
+        <service android:enabled="true" android:exported="false" android:name="com.cleanmaster.intruder.core.CameraManService" android:process=":worker"/>
+        <activity android:configChanges="keyboardHidden|navigation" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.newqrcmd.scene.QRcmdNullActivity" android:taskAffinity="com.cmcm.qrcmd.nullact" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.notificationlib.SocialMaskGuideActivity" android:screenOrientation="portrait" android:theme="@style/lm"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.applock.ui.AppLockGuideNotificationAccessActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.cleanmaster.applocklib.core.service.AppLockEcmoReceiver" android:process=":service"/>
+        <service android:name="com.cleanmaster.function.boost.wrapper.PerService" android:process=":service"/>
+        <receiver android:name="com.ksmobile.business.sdk.utils.BroadcastReceiverService">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.cleanmaster.applock.receiver.AppLockReportReceiver" android:process=":DefendService">
+            <intent-filter>
+                <action android:name="com.applock.ks.cm.antivirus.applock.action.report"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.cleanmaster.applock.receiver.PhoneStateReceiver"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.applocklib.ui.lockscreen.activity.AppLockScreenActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/d7">
+            <intent-filter>
+                <action android:name="com.applock.ks.cm.antivirus.lauch.AppLockScreenActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cleanmaster.applocklib.ui.activity.AppLockMIUIFloatingWIndowEnableGuideActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.picksbrowser.PicksBrowser" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <service android:exported="true" android:name="com.picksinit.DownloadService" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard0"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard1"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard2"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard3"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard4"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard5"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard6"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard7"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard8"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard9"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard10"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard11"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard12"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard13"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard14"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard15"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard16"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard17"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard18"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard19"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard20"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard21"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard22"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard23"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard24"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard25"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard26"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard27"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard28"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard29"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard30"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard31"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard32"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard33"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard34"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard35"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard36"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard37"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard38"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard39"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard40"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard41"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard42"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard43"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard44"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard45"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard46"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard47"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard48"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandard49"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandardOther0"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandardOther1"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandardOther2"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandardOther3"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessStandardOther4"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst0"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst1"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst2"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst3"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst4"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst5"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst6"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst7"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst8"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst9"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst10"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst11"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst12"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst13"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst14"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst15"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst16"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst17"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst18"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInst19"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInstOther0"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInstOther1"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInstOther2"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInstOther3"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrInstOther4"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask0"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask1"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask2"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask3"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask4"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask5"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask6"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask7"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask8"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask9"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask10"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask11"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask12"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask13"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask14"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask15"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask16"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask17"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask18"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTask19"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTaskOther0"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTaskOther1"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTaskOther2"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTaskOther3"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTaskOther4"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop0"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop1"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop2"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop3"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop4"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop5"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop6"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop7"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop8"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop9"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop10"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop11"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop12"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop13"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop14"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop15"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop16"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop17"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop18"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTop19"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTopOther0"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTopOther1"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTopOther2"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTopOther3"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnMainProcessSgrTopOther4"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess0"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess1"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.main.category.PROXY_STUB0"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.main.category.PROXY_STUB1"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess4">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.main.category.PROXY_STUB2"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnMainProcess5">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.main.category.PROXY_STUB3"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.main.stub0" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnMainProcessProxyStub0"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.main.stub1" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnMainProcessProxyStub1"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard0" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard1" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard2" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard3" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard4" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard5" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard6" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard7" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard8" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard9" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard10" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard11" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard12" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard13" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard14" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard15" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard16" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard17" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard18" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard19" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard20" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard21" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard22" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard23" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard24" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard25" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard26" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard27" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard28" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard29" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard30" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard31" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard32" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard33" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard34" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard35" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard36" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard37" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard38" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard39" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard40" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard41" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard42" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard43" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard44" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard45" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard46" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard47" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard48" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandard49" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandardOther0" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandardOther1" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandardOther2" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandardOther3" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessStandardOther4" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst0" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst1" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst2" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst3" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst4" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst5" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst6" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst7" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst8" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst9" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst10" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst11" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst12" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst13" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst14" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst15" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst16" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst17" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst18" android:process=":service"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInst19" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInstOther0" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInstOther1" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInstOther2" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInstOther3" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrInstOther4" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask0" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask1" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask2" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask3" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask4" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask5" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask6" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask7" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask8" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask9" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask10" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask11" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask12" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask13" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask14" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask15" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask16" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask17" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask18" android:process=":service"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTask19" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTaskOther0" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTaskOther1" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTaskOther2" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTaskOther3" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTaskOther4" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop0" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop1" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop2" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop3" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop4" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop5" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop6" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop7" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop8" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop9" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop10" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop11" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop12" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop13" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop14" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop15" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop16" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop17" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop18" android:process=":service"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTop19" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTopOther0" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTopOther1" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTopOther2" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTopOther3" android:process=":service"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnServiceProcessSgrTopOther4" android:process=":service"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess0" android:process=":service"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess1" android:process=":service"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess2" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.service.category.PROXY_STUB0"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess3" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.service.category.PROXY_STUB1"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess4" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.service.category.PROXY_STUB2"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnServiceProcess5" android:process=":service">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.service.category.PROXY_STUB3"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.service.stub0" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnServiceProcessProxyStub0" android:process=":service"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.service.stub1" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnServiceProcessProxyStub1" android:process=":service"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard0" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard1" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard2" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard3" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard4" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard5" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard6" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard7" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard8" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard9" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard10" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard11" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard12" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard13" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard14" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard15" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard16" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard17" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard18" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard19" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard20" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard21" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard22" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard23" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard24" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard25" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard26" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard27" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard28" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard29" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard30" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard31" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard32" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard33" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard34" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard35" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard36" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard37" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard38" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard39" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard40" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard41" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard42" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard43" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard44" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard45" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard46" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard47" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard48" android:process=":worker"/>
+        <activity android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandard49" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandardOther0" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandardOther1" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandardOther2" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandardOther3" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessStandardOther4" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst0" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst1" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst2" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst3" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst4" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst5" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst6" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst7" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst8" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst9" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst10" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst11" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst12" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst13" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst14" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst15" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst16" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst17" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst18" android:process=":worker"/>
+        <activity android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInst19" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInstOther0" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInstOther1" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInstOther2" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInstOther3" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrInstOther4" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask0" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask1" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask2" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask3" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask4" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask5" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask6" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask7" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask8" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask9" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask10" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask11" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask12" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask13" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask14" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask15" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask16" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask17" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask18" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTask19" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTaskOther0" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTaskOther1" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTaskOther2" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTaskOther3" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTaskOther4" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop0" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop1" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop2" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop3" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop4" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop5" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop6" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop7" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop8" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop9" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop10" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop11" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop12" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop13" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop14" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop15" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop16" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop17" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop18" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTop19" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTopOther0" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTopOther1" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTopOther2" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTopOther3" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessSgrTopOther4" android:process=":worker"/>
+        <activity android:name="com.cmlocker.permission.ui.CMLockerGuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess0" android:process=":worker"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess1" android:process=":worker"/>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess2" android:process=":worker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.worker.category.PROXY_STUB0"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess3" android:process=":worker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.worker.category.PROXY_STUB1"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess4" android:process=":worker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.worker.category.PROXY_STUB2"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.cm.plugin.stub.ServiceStubOnWorkerProcess5" android:process=":worker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.cleanmaster.mguard_cn.process.worker.category.PROXY_STUB3"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.worker.stub0" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnWorkerProcessProxyStub0" android:process=":worker"/>
+        <provider android:authorities="com.cleanmaster.mguard_cn.process.worker.stub1" android:exported="false" android:name="com.cm.plugin.stub.ContentProviderOnWorkerProcessProxyStub1" android:process=":worker"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.ChooseWallpaperActivity" android:screenOrientation="portrait" android:theme="@style/kw"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.cmlocker.core.ui.cover.WallpaperStoreActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.settings.SettingsActivityNew" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.settings.KLockerGuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.ui.DialogActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.cmlocker.core.settings.KLockerGuideTransitActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.cmlocker.core.settings.KCloseSysLockTransitActivity" android:screenOrientation="portrait" android:theme="@style/kw"/>
+        <activity android:name="com.cmlocker.core.settings.KCloseSystemPageTransitActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.settings.KEnableLockerActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.settings.KMiUiSettingsActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="true" android:name="com.cmlocker.core.settings.KPaswordTypeActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cmlocker.core.ui.cover.CustomWallPaperActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.cmlocker.core.ui.cover.WallPaperPreviewActivity" android:screenOrientation="portrait" android:theme="@style/f6">
+            <intent-filter>
+                <action android:name="com.cmlocker.core.ui.cover.WallPaperPreviewActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.MIUIGuideActivity" android:theme="@style/ky"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.settings.KMessageNotifySettingActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.AppDrawerControllerActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.KNoticationAccessGuideActivity" android:screenOrientation="portrait" android:theme="@style/kz"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.SamsungFingerGuideActivity" android:screenOrientation="portrait" android:theme="@style/l0"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.KCloseSysLockGuideActivity" android:screenOrientation="portrait" android:theme="@style/kw"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.cover.KBoostLockerDrainFastGuideActivity" android:screenOrientation="portrait" android:taskAffinity=".task_boost_locker" android:theme="@style/kw"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.cmlocker.core.ui.cover.AppLockOAuthActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.cmcm.lockersdk.AppLockOAuthActivity.START"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.settings.password.ui.PasscodeListActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.cmlocker.core.ui.cover.KAppAccessGuideActivity" android:screenOrientation="portrait" android:theme="@style/kz"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.ui.KMongolianLayerActivity" android:screenOrientation="portrait" android:theme="@style/kz"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleInstance" android:name="com.cmlocker.core.ui.cover.widget.KNotifyTransitActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleInstance" android:name="com.cmlocker.core.settings.KUsageStateMaskGuideActivity" android:screenOrientation="portrait" android:theme="@style/ld"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleInstance" android:name="com.cmlocker.core.settings.KTTSGuideActivity" android:screenOrientation="portrait" android:theme="@style/ld"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.settings.UserAvatarClipActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.ui.cover.ThemeListActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.ui.cover.SetModeLowPowerActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.core.ui.cover.LowPowerSwitchActivity" android:screenOrientation="portrait" android:theme="@style/f6"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:exported="true" android:name="com.cmlocker.core.ui.cover.ThemePreviewActivity" android:screenOrientation="portrait" android:theme="@style/f7">
+            <intent-filter>
+                <action android:name="com.cmcm.lockersdk.style_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.powersave.ui.PowerSaveAccessibilityTipsPop" android:screenOrientation="portrait" android:theme="@style/hv"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.permission.ui.OneKeyRepairActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.cmlocker.core.deskbox.ui.MusicNotifyAccessTranistActivity" android:process=":worker" android:screenOrientation="portrait" android:taskAffinity="com.locker.deskbox"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.core.deskbox.ui.MusicNotifyAccessGuideActivity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/hv"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmlocker.permission.ui.OneKeyRepairResultActivity" android:screenOrientation="portrait" android:theme="@style/fj"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.permission.ui.OneKeyPwdSettingActivity" android:screenOrientation="portrait" android:theme="@style/fj"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cmlocker.permission.ui.JumpActivity" android:screenOrientation="portrait" android:theme="@style/fj"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.ijinshan.screensavernew.LockerSdkScreenSaver2Activity" android:process=":worker" android:screenOrientation="portrait" android:theme="@style/kw"/>
+        <service android:name="com.cmlocker.core.service.PermanentService" android:process=":service"/>
+        <service android:name="com.cmlocker.core.ui.cover.LockerService" android:process=":worker"/>
+        <activity android:name="com.cmlocker.core.ui.dialog.ScreenSaverRemindDialog" android:screenOrientation="portrait" android:theme="@style/fy"/>
+        <service android:exported="false" android:name="com.cm.plugin.test.ServiceProcessService" android:process=":service"/>
+        <service android:exported="false" android:name="com.cm.plugin.test.WorkProcessService" android:process=":worker"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="com.cleanmaster.security.accessibilitysuper.ui.OneKeyPermissionActivity" android:process=":service" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cleanmaster.security.accessibilitysuper.accessibilityopen.AccessibilityFacadeActivity" android:process=":service" android:taskAffinity="cms.accessibilitysuper" android:theme="@style/d9"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:excludeFromRecents="true" android:name="com.cleanmaster.security.accessibilitysuper.ui.KPermissionGuideActivity" android:process=":service" android:screenOrientation="portrait" android:theme="@style/hv"/>
+        <activity android:excludeFromRecents="true" android:name="com.cleanmaster.security.accessibilitysuper.ui.MIUIGuideActivity" android:process=":service" android:theme="@style/hu"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.cm.plugin.accessibility.AccessibilityJumpActivity" android:process=":service" android:screenOrientation="portrait"/>
+        <activity android:label="@string/pu" android:name="com.cm.plugin.resultpage.activity.FunctionRecommendDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cm.plugin.applock.ApplockGuideActivity" android:theme="@style/hv"/>
+        <activity android:name="com.cm.plugin.ttg.TTGMainActivity"/>
+        <activity android:name="com.cm.coordinator.ttg.activity.TrackListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.cm.coordinator.ttg.activity.FeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.alibaba.sdk.android.login.ui.LoginWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.alibaba.sdk.android.login.ui.QrLoginConfirmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.alibaba.sdk.android.login.ui.QrLoginActivity" android:screenOrientation="portrait" android:theme="@style/mr"/>
+        <activity android:name="com.alibaba.sdk.android.webview.BaseWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.alibaba.sdk.android.webview.feedback.FeedbackActivity" android:screenOrientation="portrait" android:theme="@style/kp"/>
+        <activity android:name="com.alibaba.sdk.android.webview.feedback.SendFeedbackActivity" android:screenOrientation="portrait" android:theme="@style/kp"/>
+        <receiver android:exported="false" android:name="com.alibaba.sdk.android.hotpatch.HotPatchBroadcastReceiver" android:process=":hotpatch">
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.hotpatch.action.HOT_PATCH"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.alibaba.sdk.android.trade.ui.TradeWebViewActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="COM_TAOBAO_TAE_SDK_TRADE_WEB_VIEW_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.alibaba.sdk.android.trade.ui.NativeTaobaoClientActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="23419966.nativeTaobao" android:scheme="alisdk"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:exported="false" android:name="com.cm.content.onews.ui.NewsOnePageDetailActivity" android:screenOrientation="portrait" android:theme="@style/ln"/>
+        <activity android:configChanges="keyboardHidden" android:exported="false" android:name="com.cm.content.onews.ui.NewsWebViewDetailActivity" android:screenOrientation="portrait" android:theme="@style/ln"/>
+        <activity android:name="com.cm.content.gags.VideoDetailActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <service android:exported="false" android:name="com.cm.content.onews.service.LocalServiceSdk"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop1" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop2" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop3" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop4" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop5" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop6" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop7" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop8" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop9" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop10" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop11" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop12" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop13" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop14" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop16" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop17" android:process=":worker"/>
+        <activity android:launchMode="singleTop" android:name="com.cm.plugin.stub.ActivityStubOnWorkerProcessNewsSgrTop18" android:process=":worker"/>
+        <activity android:launchMode="singleTask" android:name="com.cm.plugin.ironman.IronManActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.cm.plugin.ironman.IronManActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="com.cmcm.ironman.components.IronManService" android:process=":service"/>
+        <service android:enabled="true" android:name="com.cmcm.ironman.components.LaserService" android:process=":LaserService"/>
+        <service android:exported="false" android:name="com.cmcm.ironman.hold.Hold1Service" android:process=":service"/>
+        <service android:exported="false" android:name="com.cmcm.ironman.hold.Hold2Service" android:process=":HoldService"/>
+        <activity android:excludeFromRecents="true" android:launchMode="standard" android:name="com.cmcm.ironman.hold.Hold1Activity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTop" android:name="com.cmcm.ironman.hold.Hold2Activity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.cmcm.ironman.hold.Hold3Activity" android:screenOrientation="portrait" android:taskAffinity="ks.cm.market"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.cmcm.ironman.hold.Hold4Activity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.GuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.shoujik.com" android:scheme="shoujik"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.manage.SDKManageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.manage.DownloadManageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.manage.UpgradeManageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.push.PushWebViewTemplateAct" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.push.DetailsWebViewTemplateAct" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <service android:exported="true" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.ui.push.WebViewService">
+            <intent-filter>
+                <action android:name="com.ijinshan.ShouJiKong.AndroidDaemon.action.web_service"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ijinshan.ShouJiKong.AndroidDaemon.AppDaemonService" android:process=":worker">
+            <intent-filter>
+                <action android:name="com.ijinshan.ShouJiKong.AndroidDaemon.action.APP_SERVICE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.ijinshan.ShouJiKong.AndroidDaemon.boardcast.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ijinshan.ShouJiKong.AndroidDaemon.boardcast.AlarmUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.net.jinshan.appupdate.alarm"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.ijinshan.action.selfupgrade.alarm"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.ijinshan.action.cache.alarm"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.ijinshan.ShouJiKong.AndroidDaemon.boardcast.CAppEventReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="channel" android:value="1001"/>
+        <meta-data android:name="shortcut" android:value="1"/>
+    </application>
+</manifest>

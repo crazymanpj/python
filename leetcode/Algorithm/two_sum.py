@@ -19,3 +19,10 @@ class Solution(object):
 if __name__ =='__main__':
     s = Solution()
     print s.twoSum([3,2,4], 6)
+
+	
+	
+	
+res[3] = 3
+res[4] = 2
+res[2] = 4

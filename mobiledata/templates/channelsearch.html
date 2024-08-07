@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据查询</title>
+    <link id="js-theme-css" rel="stylesheet" href="">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="anchor" content="wu song">
+
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-datetimepicker.min.css">
+    <script src="/static/js/angular.min.js"></script>
+    <script src="/static/js/cookie.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/bootstrap-typeahead.js"></script>
+    <script src="/static/js/nya-bs-select.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.zh-CN.js"></script>
+
+</head>
+<body ng-app="wsAPP">
+<!--头部导航-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-grain"></span> 数据平台</a>
+
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span
+                            class="glyphicon glyphicon-tint"></span> 换肤 <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" id="js-theme-choose">
+                        <li><a href="javascript:void(0);" data-theme="slate">slate 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cerulean">Cerulean 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cyborg">Cyborg 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Cosmo">Cosmo 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Sandstone">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Superhero">Superhero 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="United">Sandstone 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Lumen">Lumen 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Journal">Journal 风格<span>（正在用）</span></a></li>
+                        <li><a href="javascript:void(0);" data-theme="Paper">Paper 风格<span>（正在用）</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--登录后个人信息-->
+            <ul class="nav navbar-nav navbar-right" id="js-is-login" hidden>
+                <li class="dropdown">
+                    <a href="#" id="js-nickname" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"></a>
+                    <ul class="dropdown-menu">
+                        <!--<li role="separator" class="divider"></li>-->
+                        <li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--未登录-->
+            <div class="navbar-form navbar-right" id="js-not-login">
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-login"><span class="glyphicon glyphicon-user"></span> 登录</a>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#js-reg"><span class="glyphicon glyphicon-plus-sign"></span> 注册</a>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+<!--登录框-->
+<div class="modal fade" id="js-login">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">登录</h4>
+            </div>
+            <form id="js-login-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="请输入邮箱" datatype="*1-16" required="" autofocus="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="请输入密码" required="">
+                        </div>
+                    </div>
+                    <p class="small pull-right">没有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-reg">注册</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-login-submit">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--注册框-->
+<div class="modal fade" id="js-reg">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">注册</h4>
+            </div>
+            <form id="js-reg-form" class="" role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">邮箱</span>
+                            <input type="text" name="email" class="form-control" placeholder="下次用邮箱登录" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">密码</span>
+                            <input type="password" name="password" class="form-control" placeholder="密码，六位以上" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <input type="password" name="re_password" class="form-control" placeholder="请再输入一次密码" required>
+                        </div>
+                    </div>
+                    <p class="small pull-right">已有账号？<a href="" data-dismiss="modal" data-toggle="modal" data-target="#js-login">登录</a></p>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success" id="js-reg-submit">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--侧边栏-->
+        <div class="col-xs-12 col-sm-3 col-md-2" id="js-sidebar-list" ng-controller="sideBar">
+            <div class="panel panel-default" ng-repeat="x in data">
+                <div class="panel-heading"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;{{ x.groupname }}</div>
+                <div class="panel-body">
+
+                    <a type="button" ng-repeat="y in x.sidebars" class="btn btn-link" href="{{ y.url }}" target="_parent">
+                        <span class="glyphicon glyphicon-paperclip"></span>&nbsp;&nbsp;{{ y.name }}
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10" id="data-div">
+            <!--限制条件start-->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form" id="js-select" ng-controller="searchchannel">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label>渠道(channel)：</label>
+                                <select id="data-channel-select" class="form-control" ng-model="channel">
+                                    <option ng-repeat="x in data.channellist" value={{x}}>{{x}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>类型(filetype)：</label>
+                                <select id="data-filetype-select" class="form-control" ng-model="filetype">
+                                    <option ng-repeat="x in data.filetypelist" value="{{x}}">{{x}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>点击查询：</label>
+                                <button id="channelsearchBtn" class="btn btn-block btn-success" ng-click="search_channel()">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- 展示数据 -->
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;文件搜索列表</div>
+                <div class="panel-body" id="data-list">
+                    <table class="table table-striped table-hover">
+                        <thead id="head">
+                        <tr>
+                            <th>发布时间</th>
+                            <th>文件类型</th>
+                            <th>所属渠道</th>
+                            <th>文件路径</th>
+                            <th>修改内容</th>
+                            <th>记录人</th>
+                        </tr>
+                        </thead>
+                        <tbody id="js-search-lists">
+                        <tr ng-repeat="x in bottomdata_channel.datalist">
+                            <th>{{x.publishtime || ''}}</th>
+                            <th>{{x.filetype || ''}}</th>
+                            <th width="200">{{x.channel || ''}}</th>
+                            <th>{{x.filepath || ''}}</th>
+                            <th>{{x.details || ''}}</th>
+                            <th>{{x.user || ''}}</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--页码-->
+                    <div style="text-align: center">
+                        <nav>
+                            <ul class="pagination pagination-sm" hidden id="js-search-page">
+                                <!--<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>-->
+                                <!--<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>-->
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+<script src="/static/js/sideBar.js"></script>
+<script src="/static/js/productList.js"></script>
+<script src="/static/js/indexDataList.js"></script>
+<script src="/static/js/search.js"></script>
+<script>
+    var explorer = window.navigator.userAgent.toLowerCase();
+    var rMsie = /(msie\s|trident\/7)([\w\.]+)/;
+    if (rMsie.exec(explorer) != null) {
+        cookie("errId", 0);
+        window.location.href = "/web/error.html";
+    }
+</script>
+
+</body>
+</html>

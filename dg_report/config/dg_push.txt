@@ -1,0 +1,2 @@
+﻿{dgp.date} 精灵推广毒霸数据预估如下：
+3、精灵推广毒霸量：{dgp.estimatecount}，周比{dgp.estimate_weed_d}({dgp.estimate_rate}%),
